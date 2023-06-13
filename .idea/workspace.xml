@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/EventHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/EventHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Storage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/FolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/EventHistoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/EventHistoryTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# Remove redundant and add new comments in Event, EventHistory and Folder" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +150,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674600062765</updated>
       <workItem from="1686624775727" duration="2417000" />
-      <workItem from="1686628539881" duration="16687000" />
+      <workItem from="1686628539881" duration="17990000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -310,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686646692424</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="# Remove redundant and add new comments in Event, EventHistory and Folder">
+      <created>1686660621814</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686660621814</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +346,8 @@
     <MESSAGE value="# 试验自动代码生成，修改了Event" />
     <MESSAGE value="# test SSH key" />
     <MESSAGE value="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts." />
-    <option name="LAST_COMMIT_MESSAGE" value="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts." />
+    <MESSAGE value="# Remove redundant and add new comments in Event, EventHistory and Folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="# Remove redundant and add new comments in Event, EventHistory and Folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

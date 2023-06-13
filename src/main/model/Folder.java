@@ -115,7 +115,7 @@ public class Folder implements Writeable {
     }
 
     /**
-     * Returns time records in the folder as a JSON array
+     * Returns time records as a JSON array
      * @return
      */
     private JSONArray recordsToJson() {
