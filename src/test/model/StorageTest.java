@@ -24,18 +24,18 @@ public class StorageTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, testStorage.getFolderNumber());
+        assertEquals(0, testStorage.getCountOfFolders());
     }
 
     @Test
     void testAddNewFolder() {
         testStorage.addFolder("testfolder1");
-        assertEquals(1, testStorage.getFolderNumber());
-        assertTrue((testStorage.getIthFolder(0)).isSameFolder(testFolder1));
+        assertEquals(1, testStorage.getCountOfFolders());
+        assertTrue((testStorage.getFolders().get(0)).equals(testFolder1));
         testStorage.addFolder("testfolder2");
-        assertEquals(2, testStorage.getFolderNumber());
-        assertTrue((testStorage.getIthFolder(0)).isSameFolder(testFolder1));
-        assertTrue((testStorage.getIthFolder(1)).isSameFolder(testFolder2));
+        assertEquals(2, testStorage.getCountOfFolders());
+        assertTrue((testStorage.getFolders().get(0)).equals(testFolder1));
+        assertTrue((testStorage.getFolders().get(1)).equals(testFolder2));
     }
 
     @Test
@@ -44,8 +44,8 @@ public class StorageTest {
         testTimeRecord = new TimeRecord(2, "test");
         testFolder3.addTimeRecord(testTimeRecord);
         testStorage.addFolder(testFolder3);
-        assertEquals(1, testStorage.getFolderNumber());
-        assertEquals(testFolder3, testStorage.getIthFolder(0));
+        assertEquals(1, testStorage.getCountOfFolders());
+        assertEquals(testFolder3, testStorage.getFolders().get(0));
     }
 
     @Test
@@ -53,14 +53,14 @@ public class StorageTest {
         testStorage.addFolder("testfolder1");
         testStorage.addFolder("testfolder2");
         testStorage.deleteFolder(1);
-        assertEquals(1, testStorage.getFolderNumber());
-        assertTrue((testStorage.getIthFolder(0)).isSameFolder(testFolder1));
+        assertEquals(1, testStorage.getCountOfFolders());
+        assertTrue((testStorage.getFolders().get(0)).equals(testFolder1));
         testStorage.addFolder("testfolder2");
         testStorage.deleteFolder(0);
-        assertEquals(1, testStorage.getFolderNumber());
-        assertTrue((testStorage.getIthFolder(0)).isSameFolder(testFolder2));
+        assertEquals(1, testStorage.getCountOfFolders());
+        assertTrue((testStorage.getFolders().get(0)).equals(testFolder2));
         testStorage.deleteFolder(0);
-        assertEquals(0, testStorage.getFolderNumber());
+        assertEquals(0, testStorage.getCountOfFolders());
     }
 
     @Test
@@ -69,8 +69,8 @@ public class StorageTest {
         testStorage.addFolder("testfolder2");
         ArrayList<Folder> storage = testStorage.getFolders();
         assertEquals(2, storage.size());
-        assertTrue((storage.get(0)).isSameFolder(testFolder1));
-        assertTrue((storage.get(1)).isSameFolder(testFolder2));
+        assertTrue((storage.get(0)).equals(testFolder1));
+        assertTrue((storage.get(1)).equals(testFolder2));
 
     }
 }

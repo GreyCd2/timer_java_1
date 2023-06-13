@@ -25,26 +25,26 @@ public class FolderTest {
     @Test
     void testConstructor() {
         assertEquals("test folder", testFolder1.getName());
-        assertEquals(0, testFolder1.getRecordsNumber());
+        assertEquals(0, testFolder1.getSize());
     }
 
     @Test
     void testRenameFolder() {
-        testFolder1.renameFolder("TestFolder");
+        testFolder1.setName("TestFolder");
         assertEquals("TestFolder", testFolder1.getName());
     }
 
     @Test
     void testAddTimeRecord() {
         testFolder1.addTimeRecord(testRecord1);
-        assertEquals(1, testFolder1.getRecordsNumber());
-        assertEquals(testRecord1, testFolder1.getIthTimeRecord(0));
-        assertEquals(testRecord1, testFolder1.getPbRecord());
+        assertEquals(1, testFolder1.getSize());
+        assertEquals(testRecord1, testFolder1.getRecords().get(0));
+        assertEquals(testRecord1, testFolder1.getBestRecord());
         testFolder1.addTimeRecord(testRecord2);
-        assertEquals(2, testFolder1.getRecordsNumber());
-        assertEquals(testRecord1, testFolder1.getIthTimeRecord(0));
-        assertEquals(testRecord2, testFolder1.getIthTimeRecord(1));
-        assertEquals(testRecord2, testFolder1.getPbRecord());
+        assertEquals(2, testFolder1.getSize());
+        assertEquals(testRecord1, testFolder1.getRecords().get(0));
+        assertEquals(testRecord2, testFolder1.getRecords().get(1));
+        assertEquals(testRecord2, testFolder1.getBestRecord());
     }
 
     @Test
@@ -52,60 +52,60 @@ public class FolderTest {
         testFolder1.addTimeRecord(testRecord1);
         testFolder1.addTimeRecord(testRecord2);
         testFolder1.deleteTimeRecord(1);
-        assertEquals(1, testFolder1.getRecordsNumber());
-        assertEquals(testRecord1, testFolder1.getIthTimeRecord(0));
+        assertEquals(1, testFolder1.getSize());
+        assertEquals(testRecord1, testFolder1.getRecords().get(0));
         testFolder1.addTimeRecord(testRecord2);
         testFolder1.deleteTimeRecord(0);
-        assertEquals(1, testFolder1.getRecordsNumber());
-        assertEquals(testRecord2, testFolder1.getIthTimeRecord(0));
+        assertEquals(1, testFolder1.getSize());
+        assertEquals(testRecord2, testFolder1.getRecords().get(0));
         testFolder1.deleteTimeRecord(0);
-        assertEquals(0, testFolder1.getRecordsNumber());
+        assertEquals(0, testFolder1.getSize());
     }
 
     @Test
     void testIsSameFolder() {
-        assertTrue(testFolder1.isSameFolder(testFolder2));
-        assertFalse(testFolder2.isSameFolder(testFolder3));
+        assertTrue(testFolder1.equals(testFolder2));
+        assertFalse(testFolder2.equals(testFolder3));
         testFolder1.addTimeRecord(testRecord1);
         testFolder3.addTimeRecord(testRecord1);
-        assertFalse(testFolder1.isSameFolder(testFolder2));
-        assertFalse(testFolder1.isSameFolder(testFolder3));
+        assertFalse(testFolder1.equals(testFolder2));
+        assertFalse(testFolder1.equals(testFolder3));
         testFolder2.addTimeRecord(testRecord1);
         testFolder2.addTimeRecord(testRecord2);
         testFolder1.addTimeRecord(testRecord2);
-        assertTrue(testFolder1.isSameFolder(testFolder2));
+        assertTrue(testFolder1.equals(testFolder2));
     }
 
     @Test
     void testIsSameRecords() {
-        assertTrue(testFolder1.isSameRecords(testFolder2.getRecords()));
+        assertTrue(testFolder1.getRecords().equals(testFolder2.getRecords()));
         testFolder1.addTimeRecord(testRecord1);
         testFolder2.addTimeRecord(testRecord1);
-        assertTrue(testFolder1.isSameRecords(testFolder2.getRecords()));
+        assertTrue(testFolder1.getRecords().equals(testFolder2.getRecords()));
         testFolder1.addTimeRecord(testRecord2);
-        assertFalse(testFolder1.isSameRecords(testFolder2.getRecords()));
+        assertFalse(testFolder1.getRecords().equals(testFolder2.getRecords()));
         testFolder2.addTimeRecord(testRecord2);
-        assertTrue(testFolder1.isSameRecords(testFolder2.getRecords()));
+        assertTrue(testFolder1.getRecords().equals(testFolder2.getRecords()));
     }
 
     @Test
     void testGetRecordNumber() {
-        assertEquals(0, testFolder1.getRecordsNumber());
+        assertEquals(0, testFolder1.getSize());
         testFolder1.addTimeRecord(testRecord1);
-        assertEquals(1, testFolder1.getRecordsNumber());
+        assertEquals(1, testFolder1.getSize());
         testFolder1.addTimeRecord(testRecord2);
-        assertEquals(2, testFolder1.getRecordsNumber());
+        assertEquals(2, testFolder1.getSize());
     }
 
     @Test
     void testGetIthTimeRecord() {
         testFolder1.addTimeRecord(testRecord1);
         testFolder1.addTimeRecord(testRecord2);
-        assertEquals(testRecord1, testFolder1.getIthTimeRecord(0));
-        assertEquals(testRecord2, testFolder1.getIthTimeRecord(1));
+        assertEquals(testRecord1, testFolder1.getRecords().get(0));
+        assertEquals(testRecord2, testFolder1.getRecords().get(1));
         testFolder2.addTimeRecord(testRecord2);
         testFolder2.addTimeRecord(testRecord1);
-        assertEquals(testRecord2, testFolder2.getIthTimeRecord(0));
-        assertEquals(testRecord1, testFolder2.getIthTimeRecord(1));
+        assertEquals(testRecord2, testFolder2.getRecords().get(0));
+        assertEquals(testRecord1, testFolder2.getRecords().get(1));
     }
 }

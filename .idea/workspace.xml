@@ -4,8 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 试验自动代码生成，修改了Event">
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# test SSH key">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ui/TimerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/EventLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/EventHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Folder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/TimeRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/TimeRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/PbTimerApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/TimerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/model/EventLogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/EventHistoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/model/FolderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/FolderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/model/StorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/StorageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/model/TimeRecordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/TimeRecordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/persistence/JsonReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/persistence/JsonReaderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/persistence/JsonWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/persistence/JsonWriterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +71,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
+    "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -71,21 +92,8 @@
       <recent name="ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ui.Main">
-    <configuration name="TimerUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ui.TimerUI" />
-      <module name="Project-Starter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ui.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.MainController">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.Main" />
       <module name="Project-Starter" />
       <extension name="coverage">
@@ -98,7 +106,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EventLogTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.MainController" />
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Project-Starter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project-Starter" />
       <extension name="coverage">
         <pattern>
@@ -107,50 +136,33 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.EventLogTest" />
+      <option name="MAIN_CLASS_NAME" value="model.StorageTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EventTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="persistence in Project-Starter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project-Starter" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="model.*" />
+          <option name="PATTERN" value="persistence.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.EventTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EventTest.testEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Project-Starter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.EventTest" />
-      <option name="METHOD_NAME" value="testEvent" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="persistence" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ui.Main" />
-        <item itemvalue="Application.TimerUI" />
-        <item itemvalue="JUnit.EventTest" />
-        <item itemvalue="JUnit.EventTest.testEvent" />
-        <item itemvalue="JUnit.EventLogTest" />
+        <item itemvalue="Application.MainController" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in Project-Starter" />
+        <item itemvalue="JUnit.persistence in Project-Starter" />
+        <item itemvalue="JUnit.StorageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674600062765</updated>
       <workItem from="1686624775727" duration="2417000" />
-      <workItem from="1686628539881" duration="2507000" />
+      <workItem from="1686628539881" duration="15349000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -298,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686633128299</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="# test SSH key">
+      <created>1686634177771</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686634177771</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,15 +355,16 @@
     <MESSAGE value="# Phase 4 task 3 added" />
     <MESSAGE value="# ORIGIN" />
     <MESSAGE value="# 试验自动代码生成，修改了Event" />
-    <option name="LAST_COMMIT_MESSAGE" value="# 试验自动代码生成，修改了Event" />
+    <MESSAGE value="# test SSH key" />
+    <option name="LAST_COMMIT_MESSAGE" value="# test SSH key" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/ui/PbTimerApp.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/test/model/EventTest.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

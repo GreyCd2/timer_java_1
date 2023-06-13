@@ -5,12 +5,14 @@ import persistence.Writeable;
 
 // Represent a time record with its time and note
 public class TimeRecord implements Writeable {
-    private double time;   // the time that has been recorded
-    private String note;   // the note that the user add to it
+    private final double time;
+    private String note;
 
-    // REQUIRES: time > 0
-    // MODIFIES: this
-    // EFFECTS:  construct a new time record with input time and note
+    public TimeRecord(double time) {
+        this.time = time;
+        this.note = "Default.";
+    }
+
     public TimeRecord(double time, String note) {
         this.time = time;
         this.note = note;
@@ -18,12 +20,12 @@ public class TimeRecord implements Writeable {
 
     // MODIFIES: this
     // EFFECTS:  replace the original note with new input string
-    public void editNote(String newNote) {
+    public void setNote(String newNote) {
         this.note = newNote;
     }
 
     // EFFECTS:  return true if the input time record has the same time and note from this time record.
-    public boolean isSameRecord(TimeRecord tr) {
+    public boolean equals(TimeRecord tr) {
         return (this.time == tr.time) && (this.note == tr.note);
     }
 

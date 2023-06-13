@@ -72,10 +72,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Event{" +
-                "dateLogged=" + dateLogged +
-                ", description='" + description + '\'' +
-                '}';
+        return dateLogged.toString() + "\n" + description;
     }
 }
 

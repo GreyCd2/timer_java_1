@@ -1,7 +1,7 @@
 package ui;
 
 import model.Event;
-import model.EventLog;
+import model.EventHistory;
 import model.Storage;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -66,7 +66,7 @@ public class TimerUI extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                printLog(EventLog.getInstance());
+                printLog(EventHistory.getInstance());
                 System.exit(0);
             }
         });
@@ -189,7 +189,7 @@ public class TimerUI extends JFrame {
             if (!indexStr.isEmpty() && indexStr != null) {
                 try {
                     int index = Integer.parseInt(indexStr);
-                    if (index > 0 && index <= storage.getFolderNumber()) {
+                    if (index > 0 && index <= storage.getCountOfFolders()) {
                         storage.deleteFolder(index - 1);
                         displayStorage();
                     } else {
@@ -205,14 +205,14 @@ public class TimerUI extends JFrame {
     // EFFECTS:  display all the folders in outputArea
     private void displayStorage() {
         outputArea.setText("");
-        for (int i = 0; i < storage.getFolderNumber(); i++) {
-            String name = storage.getIthFolder(i).getName();
+        for (int i = 0; i < storage.getCountOfFolders(); i++) {
+            String name = storage.getFolders().get(i).getName();
             outputArea.append((i + 1) + ": " + name + "\n");
         }
     }
 
     // EFFECTS:  print all logs in the console
-    private void printLog(EventLog el) {
+    private void printLog(EventHistory el) {
         for (Event next : el) {
             System.out.println(next.toString());
         }

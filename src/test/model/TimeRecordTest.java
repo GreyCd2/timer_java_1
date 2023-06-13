@@ -29,15 +29,15 @@ class TimeRecordTest {
 
     @Test
     void testEditNote() {
-        testTimeRecord1.editNote("TESTNOTE");
+        testTimeRecord1.setNote("TESTNOTE");
         assertEquals("TESTNOTE", testTimeRecord1.getNote());
     }
 
     @Test
     void testIsSameRecord() {
-        assertFalse(testTimeRecord1.isSameRecord(testTimeRecord2));
-        assertFalse(testTimeRecord1.isSameRecord(testTimeRecord3));
-        assertFalse(testTimeRecord2.isSameRecord(testTimeRecord3));
-        assertTrue(testTimeRecord1.isSameRecord(testTimeRecord4));
+        assertFalse(testTimeRecord1.equals(testTimeRecord2));
+        assertFalse(testTimeRecord1.equals(testTimeRecord3));
+        assertFalse(testTimeRecord2.equals(testTimeRecord3));
+        assertTrue(testTimeRecord1.equals(testTimeRecord4));
     }
 }

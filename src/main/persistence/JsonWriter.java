@@ -16,7 +16,7 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS:  opens writer; throws FileNotFoundExeception if destination file cannot be opend for writing
+    // EFFECTS:  opens writer; throws FileNotFoundException if destination file cannot be opened for writing
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(destination);
     }
@@ -39,5 +39,4 @@ public class JsonWriter {
     private void saveToFile(String json) {
         writer.print(json);
     }
-
 }
