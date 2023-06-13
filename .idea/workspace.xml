@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# ORIGIN" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2KnAdn1x4DMahvk2KrVBuJPu0ZT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Project/TimerJava",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p" />
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\lib" />
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\data" />
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p" />
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\src" />
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\lib" />
+      <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\data" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TimerUI">
+    <configuration name="TimerUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.TimerUI" />
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ui.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.Main" />
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventLogTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.EventLogTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.EventTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventTest.testEvent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-Starter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.EventTest" />
+      <option name="METHOD_NAME" value="testEvent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TimerUI" />
+        <item itemvalue="Application.ui.Main" />
+        <item itemvalue="JUnit.EventTest" />
+        <item itemvalue="JUnit.EventTest.testEvent" />
+        <item itemvalue="JUnit.EventLogTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="" />
+      <created>1674600062765</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674600062765</updated>
+      <workItem from="1686624775727" duration="2417000" />
+    </task>
+    <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
+      <created>1674616860412</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674616860412</updated>
+    </task>
+    <task id="LOCAL-00002" summary="# Add Phase0 Task 2">
+      <created>1674669109876</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674669109876</updated>
+    </task>
+    <task id="LOCAL-00003" summary="# Edit Title and Subtitle">
+      <created>1674935216599</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674935216599</updated>
+    </task>
+    <task id="LOCAL-00004" summary="# Amend User Stories of Phase 0">
+      <created>1675292307537</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675292307537</updated>
+    </task>
+    <task id="LOCAL-00005" summary="# Phase 1 added">
+      <created>1675878350491</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675878350491</updated>
+    </task>
+    <task id="LOCAL-00006" summary="# Commented out recursive quit bug">
+      <created>1675907043616</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675907043616</updated>
+    </task>
+    <task id="LOCAL-00007" summary="# Quit bug fixed">
+      <created>1675908431005</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675908431005</updated>
+    </task>
+    <task id="LOCAL-00008" summary="# Phase 1 done. Please grade this one!">
+      <created>1676411936457</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1676411936457</updated>
+    </task>
+    <task id="LOCAL-00009" summary="# Phase 1 code coverage">
+      <created>1677614221461</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677614221461</updated>
+    </task>
+    <task id="LOCAL-00010" summary="# Phase 2 first draft">
+      <created>1678229840480</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678229840480</updated>
+    </task>
+    <task id="LOCAL-00011" summary="# Phase 2 code coverage">
+      <created>1678250403786</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678250403786</updated>
+    </task>
+    <task id="LOCAL-00012" summary="# Phase 3 version 1">
+      <created>1679985377899</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679985377899</updated>
+    </task>
+    <task id="LOCAL-00013" summary="# Phase 3 version 2">
+      <created>1680148380862</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680148380862</updated>
+    </task>
+    <task id="LOCAL-00014" summary="# Phase 4 task 2">
+      <created>1681183804345</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681183804345</updated>
+    </task>
+    <task id="LOCAL-00015" summary="# Phase 4: Task 2">
+      <created>1681184542174</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681184542174</updated>
+    </task>
+    <task id="LOCAL-00016" summary="# Phase 4 done">
+      <created>1681272393511</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681272393511</updated>
+    </task>
+    <task id="LOCAL-00017" summary="# Phase 4 task 3 added">
+      <created>1681272455353</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1681272455353</updated>
+    </task>
+    <task id="LOCAL-00018" summary="# ORIGIN">
+      <created>1686626142741</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686626142741</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="# Add Phase0 Task 2" />
+    <MESSAGE value="# Edit Title and Subtitle" />
+    <MESSAGE value="# Amend User Stories of Phase 0" />
+    <MESSAGE value="# Phase 1 added" />
+    <MESSAGE value="# Commented out recursive quit bug" />
+    <MESSAGE value="# Quit bug fixed" />
+    <MESSAGE value="# Phase 1 done. Please grade this one!" />
+    <MESSAGE value="# Phase 1 code coverage" />
+    <MESSAGE value="# Phase 2 first draft" />
+    <MESSAGE value="# Phase 2 code coverage" />
+    <MESSAGE value="# Phase 3 version 1" />
+    <MESSAGE value="# Phase 3 version 2" />
+    <MESSAGE value="# Phase 4 task 2" />
+    <MESSAGE value="# Phase 4: Task 2" />
+    <MESSAGE value="# Phase 4 done" />
+    <MESSAGE value="# Phase 4 task 3 added" />
+    <MESSAGE value="# ORIGIN" />
+    <option name="LAST_COMMIT_MESSAGE" value="# ORIGIN" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Project_Starter$TimerUI.ic" NAME="TimerUI Coverage Results" MODIFIED="1679332492770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ui.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Project_Starter$StorageTest_testDeleteFolders.ic" NAME="StorageTest.testDeleteFolders Coverage Results" MODIFIED="1675718699127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>model.*</FILTER>
+    </SUITE>
+  </component>
+</project>

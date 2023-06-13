@@ -1,0 +1,21 @@
+{"folders": [
+  {
+    "pbRecord": {
+      "note": "default personal best record",
+      "time": 1000
+    },
+    "records": [],
+    "name": "test folder 1"
+  },
+  {
+    "pbRecord": {
+      "note": "default personal best record",
+      "time": 1000
+    },
+    "records": [{
+      "time": 123,
+      "note": "test record1"
+    }],
+    "name": "test folder 2"
+  }
+]}
