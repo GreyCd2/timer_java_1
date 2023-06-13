@@ -3,7 +3,8 @@ package persistence;
 import model.Storage;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class JsonWriter {
     private static final int TAB = 4;

@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-// PbTimerApplication
+
 public class MainController {
     StorageController storageController;
     static final String JSON_STORE = "./data/storage.json";
@@ -71,6 +71,7 @@ public class MainController {
         System.out.println("Invalid selection.");
         System.out.println("Please input an character that is provided.");
     }
+
     private void startPage() {
         String page = """
                 \u001b[4;32m============== Main Page ==============\u001b[0m

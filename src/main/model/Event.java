@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * Represents an storage event.
- * @author GreyC
+ * @author Grey
  */
 public class Event {
     private static final int HASH_CONSTANT = 13;
@@ -30,32 +30,6 @@ public class Event {
     public String getDescription() {
         return description;
     }
-
-   /* @Override
-    public boolean equals(Object other) {
-        if (other == null) {
-            return false;
-        }
-
-        if (other.getClass() != this.getClass()) {
-            return false;
-        }
-
-        Event otherEvent = (Event) other;
-
-        return (this.dateLogged.equals(otherEvent.dateLogged)
-                && this.description.equals(otherEvent.description));
-    }
-
-    @Override
-    public int hashCode() {
-        return (HASH_CONSTANT * dateLogged.hashCode() + description.hashCode());
-    }
-
-    @Override
-    public String toString() {
-        return dateLogged.toString() + "\n" + description;
-    }*/
 
     @Override
     public boolean equals(Object o) {

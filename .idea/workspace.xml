@@ -4,29 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# test SSH key">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ui/TimerController.java" afterDir="false" />
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/EventLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/EventHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Folder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/EventHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/EventHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/model/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Storage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/TimeRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/TimeRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/PbTimerApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/TimerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/EventLogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/EventHistoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/FolderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/FolderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/StorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/StorageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/TimeRecordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/TimeRecordTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/persistence/JsonReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/persistence/JsonReaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/persistence/JsonWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/persistence/JsonWriterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/FolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/model/EventHistoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/EventHistoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +59,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -92,7 +80,7 @@
       <recent name="ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainController">
+  <component name="RunManager" selected="Application.TimerUI">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.Main" />
       <module name="Project-Starter" />
@@ -119,25 +107,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in Project-Starter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TimerUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.TimerUI" />
       <module name="Project-Starter" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Project-Starter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project-Starter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.StorageTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TimerUI" />
         <item itemvalue="Application.MainController" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Project-Starter" />
         <item itemvalue="JUnit.persistence in Project-Starter" />
-        <item itemvalue="JUnit.StorageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674600062765</updated>
       <workItem from="1686624775727" duration="2417000" />
-      <workItem from="1686628539881" duration="15349000" />
+      <workItem from="1686628539881" duration="16687000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -317,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686634177771</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts.">
+      <created>1686646692423</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686646692424</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +349,8 @@
     <MESSAGE value="# ORIGIN" />
     <MESSAGE value="# 试验自动代码生成，修改了Event" />
     <MESSAGE value="# test SSH key" />
-    <option name="LAST_COMMIT_MESSAGE" value="# test SSH key" />
+    <MESSAGE value="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts." />
+    <option name="LAST_COMMIT_MESSAGE" value="# 1. Divide structure into 4 layers.&#10;2. Replace if with switch statements.&#10;3. Replace string with COMMAND.&#10;4. Remove redundant methods&#10;5. Pretty prompts." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

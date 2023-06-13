@@ -19,7 +19,7 @@ public class Storage implements Writeable {
     // MODIFIES: this
     // EFFECTS:  add a new empty folder with user input name
     public void addFolder(String folderName) {
-        for (Folder temptFolder: folders) {
+        for (Folder temptFolder : folders) {
             if (temptFolder.getName() == folderName) {
                 System.out.println("Name duplicated.");
                 return;

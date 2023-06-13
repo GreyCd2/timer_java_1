@@ -13,7 +13,7 @@ public class StorageController {
     private static final String COMMAND_OPEN = "o";
     private static final String COMMAND_BACK_TO_MAIN = "b";
 
-//    public StorageApp(PbTimerApp pbTimerApp, FolderApp folderApp) {
+    //    public StorageApp(PbTimerApp pbTimerApp, FolderApp folderApp) {
     public StorageController(MainController mainController) {
         this.mainController = mainController;
         this.folderController = new FolderController(mainController, this);
@@ -45,7 +45,6 @@ public class StorageController {
         System.out.println("Invalid input. Please enter a character that is provided.");
         storageRouter();
     }
-
 
 
     public void displayFolders(Storage s) {
