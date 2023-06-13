@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# ORIGIN">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 试验自动代码生成，修改了Event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Event.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674600062765</updated>
       <workItem from="1686624775727" duration="2417000" />
-      <workItem from="1686628539881" duration="2138000" />
+      <workItem from="1686628539881" duration="2507000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -293,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686626142741</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="# 试验自动代码生成，修改了Event">
+      <created>1686633128299</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686633128299</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +316,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="# Add Phase0 Task 2" />
     <MESSAGE value="# Edit Title and Subtitle" />
     <MESSAGE value="# Amend User Stories of Phase 0" />
@@ -328,7 +335,8 @@
     <MESSAGE value="# Phase 4 done" />
     <MESSAGE value="# Phase 4 task 3 added" />
     <MESSAGE value="# ORIGIN" />
-    <option name="LAST_COMMIT_MESSAGE" value="# ORIGIN" />
+    <MESSAGE value="# 试验自动代码生成，修改了Event" />
+    <option name="LAST_COMMIT_MESSAGE" value="# 试验自动代码生成，修改了Event" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

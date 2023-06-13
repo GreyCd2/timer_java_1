@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * Represents an storage event.
- * @author Grey
+ * @author GreyC
  */
 public class Event {
     private static final int HASH_CONSTANT = 13;
