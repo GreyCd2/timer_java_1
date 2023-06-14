@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 1. Use AppContext as mediate.&#10;2. Add Page and Command as UI improvement.">
-      <change afterPath="$PROJECT_DIR$/src/main/ui/Timer.java" afterDir="false" />
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# Split TimerController into Timer and TimeRecordController.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/model/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Folder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/model/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Storage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/persistence/JsonReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/AppContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/FolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimeRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/TimeRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimeRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/Timer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/TimerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimerUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/model/StorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/model/StorageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/persistence/JsonWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/persistence/JsonWriterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +78,10 @@
       <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\lib" />
       <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p\data" />
     </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="ui.AppContext" />
+      <recent name="ui.Timer" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ui" />
     </key>
@@ -90,7 +92,7 @@
       <module name="Project-Starter" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ui.*" />
+          <option name="PATTERN" value="ui.MainController" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,7 +105,7 @@
       <module name="Project-Starter" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ui.*" />
+          <option name="PATTERN" value="ui.MainController" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +118,7 @@
       <module name="Project-Starter" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ui.*" />
+          <option name="PATTERN" value="ui.MainController" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,7 +169,7 @@
       <workItem from="1686624775727" duration="2417000" />
       <workItem from="1686628539881" duration="18071000" />
       <workItem from="1686700977485" duration="3813000" />
-      <workItem from="1686709654632" duration="6323000" />
+      <workItem from="1686709654632" duration="14957000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -358,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686713960142</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="# Split TimerController into Timer and TimeRecordController.">
+      <created>1686718901010</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1686718901010</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +387,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="# Add Phase0 Task 2" />
     <MESSAGE value="# Edit Title and Subtitle" />
     <MESSAGE value="# Amend User Stories of Phase 0" />
     <MESSAGE value="# Phase 1 added" />
@@ -403,7 +411,8 @@
     <MESSAGE value="# Add lib dir" />
     <MESSAGE value="# 1. Add latest json jar into lib&#10;2. Fix the bug that records cannot be displayed when best record is null for the folder" />
     <MESSAGE value="# 1. Use AppContext as mediate.&#10;2. Add Page and Command as UI improvement." />
-    <option name="LAST_COMMIT_MESSAGE" value="# 1. Use AppContext as mediate.&#10;2. Add Page and Command as UI improvement." />
+    <MESSAGE value="# Split TimerController into Timer and TimeRecordController." />
+    <option name="LAST_COMMIT_MESSAGE" value="# Split TimerController into Timer and TimeRecordController." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

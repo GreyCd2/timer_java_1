@@ -23,39 +23,47 @@ public class MainController {
     public static final String COMMAND_STORAGE = "g";
     static JsonWriter jsonWriter;
     static JsonReader jsonReader;
-    static AppContext appContext = AppContext.getInstance();
+//    static AppContext appContext = AppContext.getInstance();
 
     public static void main(String[] args) {
-        new MainController();
+        MainController.startApp();
     }
 
     // EFFECTS: shows the starter page and runs the pb timer application
-    public MainController() {
+    public static void startApp() {
         System.out.println("Hi! Welcome to PB Timer.");
 
-        appContext.input = new Scanner(System.in);
-        appContext.storage = Storage.getInstance();
-        appContext.input.useDelimiter("\n");
+        AppContext.input = new Scanner(System.in);
+        AppContext.storage = Storage.getInstance();
+        AppContext.input.useDelimiter("\n");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
-        new StorageController(appContext);
+        new StorageController();
+
+        displayPage();
+    }
+
+    public static void displayPage() {
+        Page page = new Page("Main Page", "Please select which page you want to go");
+        page.addCommand(new Command(COMMAND_TIMER, "start your timer here!"));
+        page.addCommand(new Command(COMMAND_STORAGE, "go to storage to see your past records!"));
+        page.addCommand(new Command(COMMAND_LOAD, "load storage from file and go to storage!"));
+        page.addCommand(new Command(COMMAND_SAVE, "save your changes to file and quit!"));
+        page.addCommand(new Command(COMMAND_QUIT, "ignore all the changes and quit!"));
+        System.out.println(page);
 
         router();
     }
 
     static void router() {
-        startPage();
-        String command = appContext.input.next();
-        command = command.toLowerCase();
-
-        switch (command) {
+        switch (AppContext.readCommand()) {
             case COMMAND_QUIT -> quit();
             case COMMAND_SAVE -> saveStorage();
             case COMMAND_LOAD -> loadStorage();
-            case COMMAND_TIMER -> Timer.displayPage();
+            case COMMAND_TIMER -> Timer.timer();
             case COMMAND_STORAGE -> StorageController.displayPage();
-            default -> invalidAppCommand();
+            default -> invalidMainCommand();
         }
     }
 
@@ -65,25 +73,10 @@ public class MainController {
         System.exit(0);
     }
 
-    private static void invalidAppCommand() {
-        System.out.println("Invalid selection.");
-        System.out.println("Please input an character that is provided.");
-    }
-
-    private static void startPage() {
-        Page page = new Page("Main Page", "Please select which page you want to go");
-        page.addCommand(new Command(COMMAND_TIMER, "start your timer here!"));
-        page.addCommand(new Command(COMMAND_STORAGE, "go to storage to see your past records!"));
-        page.addCommand(new Command(COMMAND_LOAD, "load storage from file and go to storage!"));
-        page.addCommand(new Command(COMMAND_SAVE, "save your changes to file and quit!"));
-        page.addCommand(new Command(COMMAND_QUIT, "ignore all the changes and quit!"));
-        System.out.println(page.toString());
-    }
-
     private static void saveStorage() {
         try {
             jsonWriter.open();
-            jsonWriter.write(appContext.storage);
+            jsonWriter.write(AppContext.storage);
             jsonWriter.close();
             System.out.println("Your changes to storage have been saved to " + JSON_STORE + ".");
             System.out.println("See you next time! :) ");
@@ -92,14 +85,19 @@ public class MainController {
         }
     }
 
-    // EFFECTS:  process the starter page for user command
     private static void loadStorage() {
         try {
-            appContext.storage = jsonReader.read();
+            AppContext.storage = jsonReader.read();
             System.out.println("Storage from file:" + JSON_STORE + " has been loaded.");
             StorageController.displayPage();
         } catch (IOException e) {
             System.out.println("Unable to read from file " + JSON_STORE + ".");
         }
     }
+
+    private static void invalidMainCommand() {
+        System.out.println("Invalid selection.");
+        System.out.println("Please input an character that is provided.");
+    }
+    // EFFECTS:  process the starter page for user command
 }

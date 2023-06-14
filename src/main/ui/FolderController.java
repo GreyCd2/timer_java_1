@@ -12,17 +12,16 @@ import java.util.ArrayList;
  */
 public class FolderController {
     TimeRecordController timeRecordController;
-    static AppContext appContext;
+//    static AppContext appContext;
     private static final String COMMAND_DELETE = "d";
     private static final String COMMAND_EDIT = "e";
     private static final String COMMAND_CALCULATOR = "c";
     private static final String COMMAND_STORAGE = "s";
-    private static final String COMMAND_BACK_TO_MAIN = "m";
+    private static final String COMMAND_BACK_TO_MAIN = "b";
 
-    public FolderController(AppContext appContext) {
-        this.appContext = appContext;
-
-        this.timeRecordController = new TimeRecordController(appContext);
+//    public FolderController(AppContext appContext) {
+    public FolderController() {
+        this.timeRecordController = new TimeRecordController();
     }
 
     /**
@@ -36,95 +35,26 @@ public class FolderController {
      * @param folder
      */
     static void displayPage(Folder folder) {
-        String page = """
-                \u001b[4;32m========= Folder Page =========\u001b[0m
-                \u001b[4;32m[d]\u001b[0m -> delete a time record
-                \u001b[4;32m[e]\u001b[0m -> edit note for a time record
-                \u001b[4;32m[c]\u001b[0m -> call the average calculator
-                \u001b[4;32m[s]\u001b[0m -> go back to storage page
-                \u001b[4;32m[m]\u001b[0m -> go back to main starter page
-                """;
+        Page page = new Page("Folder Page", "Please select from following options");
+        page.addCommand(new Command(COMMAND_DELETE, "delete a time record"));
+        page.addCommand(new Command(COMMAND_EDIT, "edit note for a time record"));
+        page.addCommand(new Command(COMMAND_CALCULATOR, "call the average calculator"));
+        page.addCommand(new Command(COMMAND_STORAGE, "go back to storage page"));
+        page.addCommand(new Command(COMMAND_BACK_TO_MAIN, "back to main starter page"));
         System.out.println(page);
+
         router(folder);
     }
 
     static void router(Folder folder) {
-        String selection = appContext.input.next();
-        selection = selection.toLowerCase();
-        switch (selection) {
+        switch (AppContext.readCommand()) {
             case COMMAND_DELETE -> TimeRecordController.deleteRecord(folder);
             case COMMAND_EDIT -> TimeRecordController.editNote(folder);
             case COMMAND_CALCULATOR -> openCalculator(folder);
             case COMMAND_STORAGE -> StorageController.displayPage();
-            case COMMAND_BACK_TO_MAIN -> MainController.router();
+            case COMMAND_BACK_TO_MAIN -> MainController.displayPage();
             default -> invalidFolderCommand(folder);
         }
-    }
-
-    /**
-     * If user input is invalid, redirect to choice page again
-     *
-     * @param f
-     */
-    private static void invalidFolderCommand(Folder f) {
-        System.out.println("\u001b[4;32mInvalid input. Please enter a character that is provided.\u001b[0m");
-        displayPage(f);
-    }
-
-    /**
-     * Create a new folder with user input name and add it into the storage
-     */
-    static void createFolder() {
-        System.out.println("\u001b[4;32mHow would you like to name this new Folder?\u001b[0m");
-        String folderName = appContext.input.next() + appContext.input.nextLine();
-        appContext.storage.addFolder(folderName);
-        String formatName = String.format("\u001b[4;32mFolder %s has been created.\u001b[0m", folderName);
-        System.out.println(formatName);
-
-        StorageController.displayPage();
-    }
-
-    /**
-     * Delete the folder with user input index in the storage
-     * Redirect user to the storage page
-     */
-    static void deleteFolder() {
-        System.out.println("\u001b[4;32mPlease enter the index of the folder you want to delete:\u001b[0m");
-        int index = appContext.input.nextInt();
-        appContext.storage.deleteFolder(index);
-        String formatIndex = String.format("\u001b[4;32mFolder %s has been deleted.\u001b[0m", index);
-        System.out.println(formatIndex);
-
-        StorageController.displayPage();
-    }
-
-    /**
-     * Rename the folder with user input index and user input name
-     * Redirect user to the storage page
-     */
-    static void renameFolder() {
-        System.out.println("Please enter the index of the folder you want to rename:");
-        int index = appContext.input.nextInt();
-        Folder f = appContext.storage.getFolders().get(index);
-        System.out.println("Please enter the new name for this folder:");
-        String newName = appContext.input.next() + appContext.input.nextLine();
-        f.setName(newName);
-        System.out.println("Folder " + index + " has been renamed as " + newName + ".");
-
-        StorageController.displayPage();
-    }
-
-    /**
-     * Open the folder with user input index and display all the records in the chosen folder
-     * User can then choose what to do with the folder or records inside the folder
-     */
-    static void openFolder() {
-        System.out.println("Please enter the index of the folder you want to open:");
-        int index = appContext.input.nextInt();
-        Folder folder = appContext.storage.getFolders().get(index);
-        System.out.println("Folder: " + folder.getName());
-        displayRecords(folder);
-        displayPage(folder);
     }
 
     /**
@@ -134,7 +64,7 @@ public class FolderController {
         System.out.println("The calculator is ready.");
         System.out.println("Please enter the number of records to count, or -1 for all records in the folder.");
 
-        int amount = appContext.input.nextInt();
+        int amount = AppContext.readInt();
         if (amount == -1) {
             calculateAll(folder);
         } else {
@@ -144,8 +74,6 @@ public class FolderController {
         displayPage(folder);
     }
 
-    // MODIFIES: this
-    // EFFECTS:  calculate all records' average time in the given folder.
     public static void calculateAll(Folder folder) {
         double sum = 0;
         int count = 0;
@@ -159,8 +87,6 @@ public class FolderController {
         System.out.println("Your average time is: " + result);
     }
 
-    // MODIFIES: this
-    // EFFECTS:  calculate given amount of records' average time in the given folder.
     public static void calculateDesiredAmount(Folder folder, int amount) {
         double sum = 0;
         ArrayList<TimeRecord> records = folder.getRecords();
@@ -175,6 +101,70 @@ public class FolderController {
         System.out.println("Your average time is: " + result);
     }
 
+    /**
+     * Create a new folder with user input name and add it into the storage
+     */
+    static void createFolder() {
+        System.out.println("How would you like to name this new Folder?");
+        String folderName = AppContext.readLine();
+        AppContext.storage.addFolder(folderName);
+        String formatName = String.format("Folder %s has been created.", folderName);
+        System.out.println(formatName);
+
+        StorageController.displayPage();
+    }
+
+    /**
+     * Delete the folder with user input index in the storage
+     * Redirect user to the storage page
+     */
+    static void deleteFolder() {
+        System.out.println("Please enter the index of the folder you want to delete:");
+        int index = AppContext.readInt();
+        String formatIndex;
+        if (AppContext.storage.deleteFolder(index)) {
+            formatIndex = String.format("Folder %s has been deleted.", index);
+        } else {
+            formatIndex = "Error: the storage is already empty OR folder with given index does not exist.";
+        }
+        System.out.println(formatIndex);
+
+        StorageController.displayPage();
+    }
+
+    /**
+     * Rename the folder with user input index and user input name
+     * Redirect user to the storage page
+     */
+    static void renameFolder() {
+        System.out.println("Please enter the index of the folder you want to rename:");
+        int index = AppContext.readInt();
+        Folder f = AppContext.storage.getFolders().get(index);
+        System.out.println("Please enter the new name for this folder:");
+        String newName = AppContext.readLine();
+        f.setName(newName);
+        System.out.println("Folder " + index + " has been renamed as " + newName + ".");
+
+        StorageController.displayPage();
+    }
+    /**
+     * Open the folder with user input index and display all the records in the chosen folder
+     * User can then choose what to do with the folder or records inside the folder
+     */
+    static void openFolder() {
+        System.out.println("Please enter the index of the folder you want to open:");
+        int index = AppContext.readInt();
+        Folder folder = AppContext.storage.getFolders().get(index);
+        System.out.println("Folder: " + folder.getName());
+        displayRecords(folder);
+        displayPage(folder);
+    }
+
+    // MODIFIES: this
+    // EFFECTS:  calculate all records' average time in the given folder.
+    // MODIFIES: this
+
+    // EFFECTS:  calculate given amount of records' average time in the given folder.
     public static void displayRecords(Folder folder) {
         if (folder.getBestRecord() != null) {
             System.out.println("PB Record: " +
@@ -188,5 +178,17 @@ public class FolderController {
         }
 
         System.out.println("All records you have in this folder are shown above.");
+
+        FolderController.displayPage(folder);
+    }
+
+    /**
+     * If user input is invalid, redirect to choice page again
+     *
+     * @param f
+     */
+    private static void invalidFolderCommand(Folder f) {
+        System.out.println("\u001b[4;32mInvalid input. Please enter a character that is provided.\u001b[0m");
+        displayPage(f);
     }
 }

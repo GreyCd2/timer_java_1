@@ -60,13 +60,16 @@ public class Storage implements Writeable {
      *
      * @param index
      */
-    public void deleteFolder(int index) {
+    public boolean deleteFolder(int index) {
+        boolean result = false;
         int indexRange = folders.size() - 1;
-        if ((index > 0) && (index <= indexRange)) {
+        if ((index >= 0) && (index <= indexRange)) {
             Folder f = folders.get(index);
             folders.remove(f);
+            result = true;
             EventHistory.getInstance().logEvent(new Event("Folder " + f.getName() + " deleted."));
         }
+        return result;
     }
 
     public ArrayList<Folder> getFolders() {

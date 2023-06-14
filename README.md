@@ -1,5 +1,16 @@
 # PB Timer
 
+---------
+## TODO: 
+- [ ] Display error message in red text.
+- [ ] Check for exceptions.
+- [ ] Clear and fix comments.
+- [ ] Add default folder when storage is empty.
+---------
+## Timer 1.1 Features:
+- [ ] Upgrade database.
+- [ ] Complete GUI.
+
 ## A Timer Designed for Magic Cube Players
 
 For the project, I am planning to make a *Magic Cube Timer*. Here are some functionality of this application:

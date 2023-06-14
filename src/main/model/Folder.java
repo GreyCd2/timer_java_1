@@ -51,15 +51,19 @@ public class Folder implements Writeable {
      *
      * @param index
      */
-    public void deleteTimeRecord(int index) {
+    public boolean deleteTimeRecord(int index) {
+        boolean result = false;
         int indexRange = records.size() - 1;
         // If the index is valid
-        if ((index > 0) && (index <= indexRange)) {
+        if ((index >= 0) && (index <= indexRange)) {
             TimeRecord timeRecord = records.get(index);
             records.remove(timeRecord);
+            result = true;
 
-            // If the deleted record is the previous best record, search through the list for the next best record.
-            if (timeRecord.equals(bestRecord)) {
+            if (records.size() == 0) {
+                bestRecord = null;
+            } else if (timeRecord.equals(bestRecord)) {
+                // If the deleted record is the previous best record, search through the list for the next best record.
                 double min = Double.MAX_VALUE;
                 for (TimeRecord tempRecord : records) {
                     if (tempRecord.getTime() < min) {
@@ -69,6 +73,7 @@ public class Folder implements Writeable {
                 }
             }
         }
+        return result;
     }
 
     @Override

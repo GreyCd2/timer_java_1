@@ -47,7 +47,7 @@ public class TimerUI extends JFrame {
             startWindow.dispose();
         };
 
-        Timer timer = new Timer(displayTime, closeWindow);
+        javax.swing.Timer timer = new javax.swing.Timer(displayTime, closeWindow);
         timer.setRepeats(false);
         timer.start();
     }
