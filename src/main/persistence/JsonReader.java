@@ -54,7 +54,7 @@ public class JsonReader {
      * @return
      */
     private Storage parseStorage(JSONObject jsonObject) {
-        Storage storage = new Storage();
+        Storage storage = Storage.getInstance();
         JSONArray foldersInJsonArray = jsonObject.getJSONArray("folders");
         addFolders(storage, foldersInJsonArray);
         return storage;

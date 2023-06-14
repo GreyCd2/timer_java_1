@@ -54,7 +54,7 @@ public class TimerUI extends JFrame {
 
     // EFFECTS:  construct a PbTimer UI with a timer page and a storage page
     public TimerUI() {
-        storage = new Storage();
+        storage = Storage.getInstance();
 
         startPage();
         addMenuBar();

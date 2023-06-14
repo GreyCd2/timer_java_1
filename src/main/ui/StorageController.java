@@ -9,7 +9,7 @@ import model.Storage;
  * @author Grey
  */
 public class StorageController {
-    // MainController mainController;
+
     FolderController folderController;
     static AppContext appContext;
     private static final String COMMAND_CREAT = "c";
@@ -23,7 +23,7 @@ public class StorageController {
         this.folderController = new FolderController(appContext);
     }
 
-    static void storageRouter() {
+    static void displayPage() {
         System.out.println("Storage:");
         displayFolders(appContext.storage);
 
@@ -33,6 +33,10 @@ public class StorageController {
         System.out.println("o -> open a folder");
         System.out.println("b -> back to starter page.");
 
+        router();
+    }
+
+    private static void router() {
         String selection = appContext.input.next();
         selection = selection.toLowerCase();
         switch (selection) {
@@ -40,14 +44,14 @@ public class StorageController {
             case COMMAND_DELETE_FOLDER -> FolderController.deleteFolder();
             case COMMAND_RENAME -> FolderController.renameFolder();
             case COMMAND_OPEN -> FolderController.openFolder();
-            case COMMAND_BACK_TO_MAIN -> MainController.appRouter();
+            case COMMAND_BACK_TO_MAIN -> MainController.router();
             default -> invalidStorageCommand();
         }
     }
 
     private static void invalidStorageCommand() {
         System.out.println("Invalid input. Please enter a character that is provided.");
-        storageRouter();
+        displayPage();
     }
 
 

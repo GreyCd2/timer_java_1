@@ -5,9 +5,14 @@ import model.Storage;
 import java.util.Scanner;
 
 public class AppContext {
+    private static final AppContext INSTANCE = new AppContext();
     public Storage storage;
     public Scanner input;
 
-    public AppContext() {
+    private AppContext() {
+    }
+
+    public static AppContext getInstance() {
+        return INSTANCE;
     }
 }

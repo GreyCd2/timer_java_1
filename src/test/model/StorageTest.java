@@ -17,7 +17,7 @@ public class StorageTest {
 
     @BeforeEach
     void setup() {
-        testStorage = new Storage();
+        testStorage = Storage.getInstance();
         testFolder1 = new Folder("testfolder1");
         testFolder2 = new Folder("testfolder2");
     }

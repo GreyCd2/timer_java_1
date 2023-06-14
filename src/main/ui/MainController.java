@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Grey
  */
 public class MainController {
-    StorageController storageController;
+//    StorageController storageController;
     static final String JSON_STORE = "./data/storage.json";
     public static final String COMMAND_QUIT = "q";
     public static final String COMMAND_SAVE = "s";
@@ -23,7 +23,7 @@ public class MainController {
     public static final String COMMAND_STORAGE = "g";
     static JsonWriter jsonWriter;
     static JsonReader jsonReader;
-    static AppContext appContext = new AppContext();
+    static AppContext appContext = AppContext.getInstance();
 
     public static void main(String[] args) {
         new MainController();
@@ -33,23 +33,18 @@ public class MainController {
     public MainController() {
         System.out.println("Hi! Welcome to PB Timer.");
 
-        init();
-        appRouter();
-    }
-
-    // MODIFIES: this
-    // EFFECTS:  processes user input
-    private void init() {
         appContext.input = new Scanner(System.in);
-        appContext.storage = new Storage();
+        appContext.storage = Storage.getInstance();
         appContext.input.useDelimiter("\n");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
-        storageController = new StorageController(appContext);
+        new StorageController(appContext);
+
+        router();
     }
 
-    static void appRouter() {
+    static void router() {
         startPage();
         String command = appContext.input.next();
         command = command.toLowerCase();
@@ -58,8 +53,8 @@ public class MainController {
             case COMMAND_QUIT -> quit();
             case COMMAND_SAVE -> saveStorage();
             case COMMAND_LOAD -> loadStorage();
-            case COMMAND_TIMER -> TimerController.timerRouter();
-            case COMMAND_STORAGE -> StorageController.storageRouter();
+            case COMMAND_TIMER -> Timer.displayPage();
+            case COMMAND_STORAGE -> StorageController.displayPage();
             default -> invalidAppCommand();
         }
     }
@@ -102,7 +97,7 @@ public class MainController {
         try {
             appContext.storage = jsonReader.read();
             System.out.println("Storage from file:" + JSON_STORE + " has been loaded.");
-            StorageController.storageRouter();
+            StorageController.displayPage();
         } catch (IOException e) {
             System.out.println("Unable to read from file " + JSON_STORE + ".");
         }

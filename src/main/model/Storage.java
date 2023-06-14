@@ -12,13 +12,18 @@ import java.util.ArrayList;
  * @author Grey
  */
 public class Storage implements Writeable {
+    private static final Storage INSTANCE = new Storage();
     private ArrayList<Folder> folders;
 
     /**
      * Create a new storage with no folders inside
      */
-    public Storage() {
+    private Storage() {
         folders = new ArrayList<>();
+    }
+
+    public static Storage getInstance() {
+        return INSTANCE;
     }
 
     /**

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author Grey
  */
 public class FolderController {
-    TimerController timerController;
+    TimeRecordController timeRecordController;
     static AppContext appContext;
     private static final String COMMAND_DELETE = "d";
     private static final String COMMAND_EDIT = "e";
@@ -22,7 +22,7 @@ public class FolderController {
     public FolderController(AppContext appContext) {
         this.appContext = appContext;
 
-        this.timerController = new TimerController(appContext);
+        this.timeRecordController = new TimeRecordController(appContext);
     }
 
     /**
@@ -33,9 +33,9 @@ public class FolderController {
      * 4. Go back to storage page
      * 5. Go back to main page
      *
-     * @param f
+     * @param folder
      */
-    static void doWithFolder(Folder f) {
+    static void displayPage(Folder folder) {
         String page = """
                 \u001b[4;32m========= Folder Page =========\u001b[0m
                 \u001b[4;32m[d]\u001b[0m -> delete a time record
@@ -45,16 +45,19 @@ public class FolderController {
                 \u001b[4;32m[m]\u001b[0m -> go back to main starter page
                 """;
         System.out.println(page);
+        router(folder);
+    }
 
+    static void router(Folder folder) {
         String selection = appContext.input.next();
         selection = selection.toLowerCase();
         switch (selection) {
-            case COMMAND_DELETE -> TimerController.deleteRecord(f);
-            case COMMAND_EDIT -> TimerController.editNote(f);
-            case COMMAND_CALCULATOR -> openCalculator(f);
-            case COMMAND_STORAGE -> StorageController.storageRouter();
-            case COMMAND_BACK_TO_MAIN -> MainController.appRouter();
-            default -> invalidFolderCommand(f);
+            case COMMAND_DELETE -> TimeRecordController.deleteRecord(folder);
+            case COMMAND_EDIT -> TimeRecordController.editNote(folder);
+            case COMMAND_CALCULATOR -> openCalculator(folder);
+            case COMMAND_STORAGE -> StorageController.displayPage();
+            case COMMAND_BACK_TO_MAIN -> MainController.router();
+            default -> invalidFolderCommand(folder);
         }
     }
 
@@ -65,7 +68,7 @@ public class FolderController {
      */
     private static void invalidFolderCommand(Folder f) {
         System.out.println("\u001b[4;32mInvalid input. Please enter a character that is provided.\u001b[0m");
-        doWithFolder(f);
+        displayPage(f);
     }
 
     /**
@@ -78,7 +81,7 @@ public class FolderController {
         String formatName = String.format("\u001b[4;32mFolder %s has been created.\u001b[0m", folderName);
         System.out.println(formatName);
 
-        StorageController.storageRouter();
+        StorageController.displayPage();
     }
 
     /**
@@ -92,7 +95,7 @@ public class FolderController {
         String formatIndex = String.format("\u001b[4;32mFolder %s has been deleted.\u001b[0m", index);
         System.out.println(formatIndex);
 
-        StorageController.storageRouter();
+        StorageController.displayPage();
     }
 
     /**
@@ -108,10 +111,8 @@ public class FolderController {
         f.setName(newName);
         System.out.println("Folder " + index + " has been renamed as " + newName + ".");
 
-        StorageController.storageRouter();
+        StorageController.displayPage();
     }
-    // EFFECTS: open the folder with given index, display all the records in the folder
-    //          Then choose what to do with the folder.
 
     /**
      * Open the folder with user input index and display all the records in the chosen folder
@@ -120,36 +121,36 @@ public class FolderController {
     static void openFolder() {
         System.out.println("Please enter the index of the folder you want to open:");
         int index = appContext.input.nextInt();
-        Folder f = appContext.storage.getFolders().get(index);
-        System.out.println("Folder: " + f.getName());
-        displayRecords(f);
-        doWithFolder(f);
+        Folder folder = appContext.storage.getFolders().get(index);
+        System.out.println("Folder: " + folder.getName());
+        displayRecords(folder);
+        displayPage(folder);
     }
 
     /**
-     * @param f
+     * @param folder
      */
-    private static void openCalculator(Folder f) {
+    private static void openCalculator(Folder folder) {
         System.out.println("The calculator is ready.");
         System.out.println("Please enter the number of records to count, or -1 for all records in the folder.");
 
         int amount = appContext.input.nextInt();
         if (amount == -1) {
-            calculateAll(f);
+            calculateAll(folder);
         } else {
-            calculateDesiredAmount(f, amount);
+            calculateDesiredAmount(folder, amount);
         }
 
-        doWithFolder(f);
+        displayPage(folder);
     }
 
     // MODIFIES: this
     // EFFECTS:  calculate all records' average time in the given folder.
-    public static void calculateAll(Folder f) {
+    public static void calculateAll(Folder folder) {
         double sum = 0;
         int count = 0;
 
-        for (TimeRecord tr : (f.getRecords())) {
+        for (TimeRecord tr : (folder.getRecords())) {
             sum = sum + tr.getTime();
             count++;
         }
@@ -160,13 +161,13 @@ public class FolderController {
 
     // MODIFIES: this
     // EFFECTS:  calculate given amount of records' average time in the given folder.
-    public static void calculateDesiredAmount(Folder f, int amount) {
+    public static void calculateDesiredAmount(Folder folder, int amount) {
         double sum = 0;
-        ArrayList<TimeRecord> records = f.getRecords();
+        ArrayList<TimeRecord> records = folder.getRecords();
 
-        for (TimeRecord tr : records) {
-            if (records.indexOf(tr) < amount) {
-                sum = sum + tr.getTime();
+        for (TimeRecord timeRecord : records) {
+            if (records.indexOf(timeRecord) < amount) {
+                sum = sum + timeRecord.getTime();
             }
         }
 
@@ -174,13 +175,16 @@ public class FolderController {
         System.out.println("Your average time is: " + result);
     }
 
-    public static void displayRecords(Folder f) {
-        if (f.getBestRecord() != null) {
-            System.out.println("PB Record: " + (f.getBestRecord()).getTime() + ": " + (f.getBestRecord()).getNote());
+    public static void displayRecords(Folder folder) {
+        if (folder.getBestRecord() != null) {
+            System.out.println("PB Record: " +
+                    (folder.getBestRecord()).getTime() + ": " +
+                    (folder.getBestRecord()).getNote());
         }
 
-        for (TimeRecord r : (f.getRecords())) {
-            System.out.println((f.getRecords()).indexOf(r) + ". " + r.getTime() + ": " + r.getNote());
+        for (TimeRecord timeRecord : (folder.getRecords())) {
+            System.out.println((folder.getRecords()).indexOf(timeRecord) +
+                    ". " + timeRecord.getTime() + ": " + timeRecord.getNote());
         }
 
         System.out.println("All records you have in this folder are shown above.");

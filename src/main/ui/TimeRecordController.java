@@ -6,51 +6,26 @@ import model.TimeRecord;
 /**
  * Represent the timer layer of the Timer app
  */
-public class TimerController {
+public class TimeRecordController {
     static AppContext appContext;
     public static final String COMMAND_KEEP = "k";
     public static final String COMMAND_IGNORE = "i";
     public static final String COMMAND_START = "s";
     public static final String COMMAND_STOP = "l";
-    private static long start;
-    private static long end;
 
-    public TimerController(AppContext appContext) {
+    public TimeRecordController(AppContext appContext) {
         this.appContext = appContext;
     }
 
-    static void timerRouter() {
-        System.out.println("Timer Instruction:");
-        System.out.println("Enter the letter s, and hit enter key when you want to start the timer.");
-        System.out.println("When you are down, enter the letter l and hit enter as fast as possible to end timing.");
-
-        String selection = appContext.input.next();
-        selection = selection.toLowerCase();
-        if (selection.equals(COMMAND_START)) {
-            start = System.nanoTime();
-            System.out.println("Time starts now!");
-            System.out.println("Reminder: enter letter l and then hit enter key to end the timer.");
-        } else {
-            System.out.println("The timer is not yet started. Please follow the instruction above.");
-            timerRouter();
-        }
-
-        String selection2 = appContext.input.next();
-        selection2 = selection2.toLowerCase();
-        if (selection2.equals(COMMAND_STOP)) {
-            end = System.nanoTime();
-        }
-
-        double time = (end - start) * 0.000000001;
-        System.out.println("Your Time is: " + time);
-        doWithTimeRecord(time);
-    }
-
-    static void doWithTimeRecord(double time) {
+    static void displayPage(double time) {
         System.out.println("What would you like to do with this time record?");
         System.out.println("k -> keep it");
         System.out.println("i -> ignore it and go back to main starter page");
 
+        router(time);
+    }
+
+    private static void router(double time) {
         String selection = appContext.input.next();
         selection = selection.toLowerCase();
         if (selection.equals(COMMAND_KEEP)) {
@@ -59,10 +34,10 @@ public class TimerController {
             TimeRecord timeRecord = new TimeRecord(time, note);
             addTimeRecordTo(timeRecord);
         } else if (selection.equals(COMMAND_IGNORE)) {
-            MainController.appRouter();
+            MainController.router();
         } else {
             System.out.println("Invalid input. Please enter a character that is provided.");
-            doWithTimeRecord(time);
+            displayPage(time);
         }
     }
     // MODIFIES: this
@@ -76,7 +51,7 @@ public class TimerController {
         f.addTimeRecord(tr);
         System.out.println("Your time record has been successfully added.");
         System.out.println("Directing you back to storage page...");
-        StorageController.storageRouter();
+        StorageController.displayPage();
     }
 
     static void deleteRecord(Folder f) {
@@ -98,7 +73,7 @@ public class TimerController {
         editRecord.setNote(newNote);
         System.out.println("Note for record " + index + " has been edited.");
 
-        FolderController.doWithFolder(f);
+        FolderController.displayPage(f);
     }
 
     private static String getNewNote() {

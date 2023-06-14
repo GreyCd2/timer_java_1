@@ -14,7 +14,7 @@ public class JsonWriterTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            Storage storage = new Storage();
+            Storage storage = Storage.getInstance();
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -26,7 +26,7 @@ public class JsonWriterTest {
     @Test
     void testWriterEmptyStorage() {
         try {
-            Storage storage = new Storage();
+            Storage storage = Storage.getInstance();
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyStorage.json");
             writer.open();
             writer.write(storage);
@@ -43,7 +43,7 @@ public class JsonWriterTest {
     @Test
     void testWriterGeneralStorage() {
         try {
-            Storage storage = new Storage();
+            Storage storage = Storage.getInstance();
             storage.addFolder("test folder 1");
             Folder testFolder2 = new Folder("test folder 2");
             TimeRecord testRecord = new TimeRecord(123, "test record");
