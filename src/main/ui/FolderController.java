@@ -2,10 +2,12 @@ package ui;
 
 import model.Folder;
 import model.TimeRecord;
+
 import java.util.ArrayList;
 
 /**
  * Represent the folder layer of the Timer app
+ *
  * @author Grey
  */
 public class FolderController {
@@ -33,6 +35,7 @@ public class FolderController {
      * 3. Use the average calculator
      * 4. Go back to storage page
      * 5. Go back to main page
+     *
      * @param f
      */
     void doWithFolder(Folder f) {
@@ -60,6 +63,7 @@ public class FolderController {
 
     /**
      * If user input is invalid, redirect to choice page again
+     *
      * @param f
      */
     private void invalidFolderCommand(Folder f) {
@@ -124,7 +128,6 @@ public class FolderController {
     }
 
     /**
-     *
      * @param f
      */
     private void openCalculator(Folder f) {
@@ -173,7 +176,9 @@ public class FolderController {
     }
 
     public void displayRecords(Folder f) {
-        System.out.println("PB Record: " + (f.getBestRecord()).getTime() + ": " + (f.getBestRecord()).getNote());
+        if (f.getBestRecord() != null) {
+            System.out.println("PB Record: " + (f.getBestRecord()).getTime() + ": " + (f.getBestRecord()).getNote());
+        }
 
         for (TimeRecord r : (f.getRecords())) {
             System.out.println((f.getRecords()).indexOf(r) + ". " + r.getTime() + ": " + r.getNote());
