@@ -3,22 +3,28 @@ package model;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writeable;
-
 import java.util.ArrayList;
 
-// represent the storage of the PbTimer App with a list of folders in it.
+/**
+ * Represent the storage of the PbTimer App with a list of folders in it
+ * @author Grey
+ */
 public class Storage implements Writeable {
     private ArrayList<Folder> folders;
 
-    // EFFECTS: make a new storage with no folders inside
+    /**
+     * Create a new storage with no folders inside
+     */
     public Storage() {
         folders = new ArrayList<>();
     }
 
-    // REQUIRES: the new Folder's name does not already exist
-    // MODIFIES: this
-    // EFFECTS:  add a new empty folder with user input name
+    /**
+     * Add a new empty folder with user input name
+     * @param folderName
+     */
     public void addFolder(String folderName) {
+        // The folder name does not already exit.
         for (Folder temptFolder : folders) {
             if (temptFolder.getName() == folderName) {
                 System.out.println("Name duplicated.");
@@ -30,33 +36,28 @@ public class Storage implements Writeable {
         EventHistory.getInstance().logEvent(new Event("Folder " + folderName + " added."));
     }
 
-    // MODIFIES: this
-    // EFFECTS:  add a folder into the storage
+    /**
+     * Add an existing folder into the storage
+     * @param f
+     */
     public void addFolder(Folder f) {
         // TODO: WHY EXIST
         folders.add(f);
         EventHistory.getInstance().logEvent(new Event("Folder " + f.getName() + " added."));
     }
 
-    // REQUIRES: the index exists
-    // MODIFIES: this
-    // EFFECTS:  delete the folder with user input index.
-    //           if the index is not valid, output an error message.
+    /**
+     * Delete the folder with user input index.
+     * @param index
+     */
     public void deleteFolder(int index) {
-        Folder f = folders.get(index);
-        folders.remove(f);
-        EventHistory.getInstance().logEvent(new Event("Folder " + f.getName() + " deleted."));
+        int indexRange = folders.size() - 1;
+        if ((index > 0) && (index <= indexRange)) {
+            Folder f = folders.get(index);
+            folders.remove(f);
+            EventHistory.getInstance().logEvent(new Event("Folder " + f.getName() + " deleted."));
+        }
     }
-
-    // EFFECTS:  return how many folders are there in the storage
-    public int getCountOfFolders() {
-        return folders.size();
-    }
-
-/*    // EFFECTS:  return the folder with given index in the storage
-    public Folder getIthFolder(int index) {
-        return storage.get(index);
-    }*/
 
     public ArrayList<Folder> getFolders() {
         return folders;
@@ -69,7 +70,10 @@ public class Storage implements Writeable {
         return json;
     }
 
-    // EFFECTS:  returns folders in the storage as a JSON array
+    /**
+     * Return folders in the storage as a JSON array
+     * @return
+     */
     private JSONArray foldersToJson() {
         JSONArray jsonArray = new JSONArray();
 

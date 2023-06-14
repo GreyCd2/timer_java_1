@@ -2,9 +2,12 @@ package ui;
 
 import model.Folder;
 import model.TimeRecord;
-
 import java.util.ArrayList;
 
+/**
+ * Represent the folder layer of the Timer app
+ * @author Grey
+ */
 public class FolderController {
     MainController mainController;
     TimerController timerController;
@@ -15,20 +18,33 @@ public class FolderController {
     private static final String COMMAND_STORAGE = "s";
     private static final String COMMAND_BACK_TO_MAIN = "m";
 
-    //    public FolderApp(PbTimerApp pbTimerApp, TimeRecordApp timeRecordApp, StorageApp storageApp) {
-    public FolderController(MainController mainController, StorageController storageController) {
+    public FolderController(MainController mainController,
+                            StorageController storageController) {
         this.mainController = mainController;
         this.storageController = storageController;
 
         this.timerController = new TimerController(mainController, storageController, this);
     }
 
+    /**
+     * User can choose to:
+     * 1. Delete a time record
+     * 2. Edit note for a time record
+     * 3. Use the average calculator
+     * 4. Go back to storage page
+     * 5. Go back to main page
+     * @param f
+     */
     void doWithFolder(Folder f) {
-        System.out.println("d -> delete a time record");
-        System.out.println("e -> edit note for a time record");
-        System.out.println("c -> call the average calculator");
-        System.out.println("s -> go back to storage page");
-        System.out.println("m -> go back to main starter page");
+        String page = """
+                \u001b[4;32m========= Folder Page =========\u001b[0m
+                \u001b[4;32m[d]\u001b[0m -> delete a time record
+                \u001b[4;32m[e]\u001b[0m -> edit note for a time record
+                \u001b[4;32m[c]\u001b[0m -> call the average calculator
+                \u001b[4;32m[s]\u001b[0m -> go back to storage page
+                \u001b[4;32m[m]\u001b[0m -> go back to main starter page
+                """;
+        System.out.println(page);
 
         String selection = mainController.input.next();
         selection = selection.toLowerCase();
@@ -42,11 +58,18 @@ public class FolderController {
         }
     }
 
+    /**
+     * If user input is invalid, redirect to choice page again
+     * @param f
+     */
     private void invalidFolderCommand(Folder f) {
         System.out.println("Invalid input. Please enter a character that is provided.");
         doWithFolder(f);
     }
 
+    /**
+     * Create a new folder with user input name and add it into the storage
+     */
     void createFolder() {
         System.out.println("How would you like to name this new Folder?");
         String folderName = mainController.input.next() + mainController.input.nextLine();
@@ -55,9 +78,11 @@ public class FolderController {
 
         storageController.storageRouter();
     }
-    // MODIFIES: this
-    // EFFECTS: delete the folder with given index, and then go back to storage page
 
+    /**
+     * Delete the folder with user input index in the storage
+     * Redirect user to the storage page
+     */
     void deleteFolder() {
         System.out.println("Please enter the index of the folder you want to delete:");
         int index = mainController.input.nextInt();
@@ -66,9 +91,11 @@ public class FolderController {
 
         storageController.storageRouter();
     }
-    // MODIFIES: folder
-    // EFFECTS: rename the folder with given index, and then go back to storage page
 
+    /**
+     * Rename the folder with user input index and user input name
+     * Redirect user to the storage page
+     */
     void renameFolder() {
         System.out.println("Please enter the index of the folder you want to rename:");
         int index = mainController.input.nextInt();
@@ -83,6 +110,10 @@ public class FolderController {
     // EFFECTS: open the folder with given index, display all the records in the folder
     //          Then choose what to do with the folder.
 
+    /**
+     * Open the folder with user input index and display all the records in the chosen folder
+     * User can then choose what to do with the folder or records inside the folder
+     */
     void openFolder() {
         System.out.println("Please enter the index of the folder you want to open:");
         int index = mainController.input.nextInt();
@@ -91,9 +122,11 @@ public class FolderController {
         displayRecords(f);
         doWithFolder(f);
     }
-    // MODIFIES: this
-    // EFFECTS:  delete a record, go back to storage page, or go back to starter page
 
+    /**
+     *
+     * @param f
+     */
     private void openCalculator(Folder f) {
         System.out.println("The calculator is ready.");
         System.out.println("Please enter the number of records to count, or -1 for all records in the folder.");

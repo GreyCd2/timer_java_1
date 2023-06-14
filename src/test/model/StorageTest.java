@@ -24,16 +24,16 @@ public class StorageTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, testStorage.getCountOfFolders());
+        assertEquals(0, testStorage.getFolders().size());
     }
 
     @Test
     void testAddNewFolder() {
         testStorage.addFolder("testfolder1");
-        assertEquals(1, testStorage.getCountOfFolders());
+        assertEquals(1, testStorage.getFolders().size());
         assertTrue((testStorage.getFolders().get(0)).equals(testFolder1));
         testStorage.addFolder("testfolder2");
-        assertEquals(2, testStorage.getCountOfFolders());
+        assertEquals(2, testStorage.getFolders().size());
         assertTrue((testStorage.getFolders().get(0)).equals(testFolder1));
         assertTrue((testStorage.getFolders().get(1)).equals(testFolder2));
     }
@@ -44,7 +44,7 @@ public class StorageTest {
         testTimeRecord = new TimeRecord(2, "test");
         testFolder3.addTimeRecord(testTimeRecord);
         testStorage.addFolder(testFolder3);
-        assertEquals(1, testStorage.getCountOfFolders());
+        assertEquals(1, testStorage.getFolders().size());
         assertEquals(testFolder3, testStorage.getFolders().get(0));
     }
 
@@ -53,14 +53,14 @@ public class StorageTest {
         testStorage.addFolder("testfolder1");
         testStorage.addFolder("testfolder2");
         testStorage.deleteFolder(1);
-        assertEquals(1, testStorage.getCountOfFolders());
+        assertEquals(1, testStorage.getFolders().size());
         assertTrue((testStorage.getFolders().get(0)).equals(testFolder1));
         testStorage.addFolder("testfolder2");
         testStorage.deleteFolder(0);
-        assertEquals(1, testStorage.getCountOfFolders());
+        assertEquals(1, testStorage.getFolders().size());
         assertTrue((testStorage.getFolders().get(0)).equals(testFolder2));
         testStorage.deleteFolder(0);
-        assertEquals(0, testStorage.getCountOfFolders());
+        assertEquals(0, testStorage.getFolders().size());
     }
 
     @Test

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * represent a folder with its name, a list of time records it has and a personal best record inside this folder.
+ * Represent a folder with its name, a list of time records it has and a personal best record inside this folder
  * @author Grey
  */
 public class Folder implements Writeable {
@@ -25,9 +25,9 @@ public class Folder implements Writeable {
     }
 
     /**
-     * Add a time record into the folder.
-     * If this is the first record being added, take it as the best record.
-     * Else, compare it with the existing best record, and replace best record with it if this one is quicker.
+     * Add a time record into the folder
+     * If this is the first record being added, take it as the best record
+     * Else, compare it with the existing best record, and replace best record with it if this one is quicker
      * @param record
      */
     public void addTimeRecord(TimeRecord record) {
@@ -115,7 +115,7 @@ public class Folder implements Writeable {
     }
 
     /**
-     * Returns time records as a JSON array
+     * Return time records as a JSON array
      * @return
      */
     private JSONArray recordsToJson() {

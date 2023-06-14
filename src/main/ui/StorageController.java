@@ -3,19 +3,22 @@ package ui;
 import model.Folder;
 import model.Storage;
 
+/**
+ * Represent the storage layer of the Timer app
+ * @author Grey
+ */
 public class StorageController {
     MainController mainController;
     FolderController folderController;
-
     private static final String COMMAND_CREAT = "c";
     private static final String COMMAND_DELETE_FOLDER = "d";
     private static final String COMMAND_RENAME = "r";
     private static final String COMMAND_OPEN = "o";
     private static final String COMMAND_BACK_TO_MAIN = "b";
 
-    //    public StorageApp(PbTimerApp pbTimerApp, FolderApp folderApp) {
     public StorageController(MainController mainController) {
         this.mainController = mainController;
+
         this.folderController = new FolderController(mainController, this);
     }
 

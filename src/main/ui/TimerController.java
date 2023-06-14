@@ -3,6 +3,9 @@ package ui;
 import model.Folder;
 import model.TimeRecord;
 
+/**
+ * Represent the timer layer of the Timer app
+ */
 public class TimerController {
     MainController mainController;
     StorageController storageController;
@@ -14,7 +17,9 @@ public class TimerController {
     private long start;
     private long end;
 
-    public TimerController(MainController mainController, StorageController storageController, FolderController folderController) {
+    public TimerController(MainController mainController,
+                           StorageController storageController,
+                           FolderController folderController) {
         this.mainController = mainController;
         this.storageController = storageController;
         this.folderController = folderController;

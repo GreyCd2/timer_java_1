@@ -3,12 +3,14 @@ package ui;
 import model.Storage;
 import persistence.JsonReader;
 import persistence.JsonWriter;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-
+/**
+ * Represent the main start page of the Timer app
+ * @author Grey
+ */
 public class MainController {
     StorageController storageController;
     static final String JSON_STORE = "./data/storage.json";

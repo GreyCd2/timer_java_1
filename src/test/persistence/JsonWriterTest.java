@@ -34,7 +34,7 @@ public class JsonWriterTest {
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyStorage.json");
             storage = reader.read();
-            assertEquals(0, storage.getCountOfFolders());
+            assertEquals(0, storage.getFolders().size());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
@@ -56,7 +56,7 @@ public class JsonWriterTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralStorage.json");
             storage = reader.read();
-            assertEquals(2, storage.getCountOfFolders());
+            assertEquals(2, storage.getFolders().size());
             Folder folder1 = storage.getFolders().get(0);
             Folder folder2 = storage.getFolders().get(1);
             assertEquals(0, folder1.getSize());

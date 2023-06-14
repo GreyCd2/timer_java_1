@@ -27,7 +27,7 @@ public class JsonReaderTest {
         JsonReader reader = new JsonReader("./data/testReaderEmptyStorage.json");
         try {
             Storage storage = reader.read();
-            assertEquals(0, storage.getCountOfFolders());
+            assertEquals(0, storage.getFolders().size());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -38,7 +38,7 @@ public class JsonReaderTest {
         JsonReader reader = new JsonReader("./data/testReaderGeneralStorage.json");
         try {
             Storage storage = reader.read();
-            assertEquals(2, storage.getCountOfFolders());
+            assertEquals(2, storage.getFolders().size());
             Folder folder1 = storage.getFolders().get(0);
             Folder folder2 = storage.getFolders().get(1);
             assertEquals(0, folder1.getSize());

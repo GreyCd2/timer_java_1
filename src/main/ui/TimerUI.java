@@ -189,7 +189,7 @@ public class TimerUI extends JFrame {
             if (!indexStr.isEmpty() && indexStr != null) {
                 try {
                     int index = Integer.parseInt(indexStr);
-                    if (index > 0 && index <= storage.getCountOfFolders()) {
+                    if (index > 0 && index <= storage.getFolders().size()) {
                         storage.deleteFolder(index - 1);
                         displayStorage();
                     } else {
@@ -205,7 +205,7 @@ public class TimerUI extends JFrame {
     // EFFECTS:  display all the folders in outputArea
     private void displayStorage() {
         outputArea.setText("");
-        for (int i = 0; i < storage.getCountOfFolders(); i++) {
+        for (int i = 0; i < storage.getFolders().size(); i++) {
             String name = storage.getFolders().get(i).getName();
             outputArea.append((i + 1) + ": " + name + "\n");
         }
