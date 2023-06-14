@@ -3,12 +3,14 @@ package ui;
 import model.Storage;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 /**
  * Represent the main start page of the Timer app
+ *
  * @author Grey
  */
 public class MainController {
@@ -19,10 +21,9 @@ public class MainController {
     public static final String COMMAND_LOAD = "l";
     public static final String COMMAND_TIMER = "t";
     public static final String COMMAND_STORAGE = "g";
-    Storage storage;
-    Scanner input;
-    JsonWriter jsonWriter;
-    JsonReader jsonReader;
+    static JsonWriter jsonWriter;
+    static JsonReader jsonReader;
+    static AppContext appContext = new AppContext();
 
     public static void main(String[] args) {
         new MainController();
@@ -39,26 +40,26 @@ public class MainController {
     // MODIFIES: this
     // EFFECTS:  processes user input
     private void init() {
-        input = new Scanner(System.in);
-        storage = new Storage();
-        input.useDelimiter("\n");
+        appContext.input = new Scanner(System.in);
+        appContext.storage = new Storage();
+        appContext.input.useDelimiter("\n");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
-        storageController = new StorageController(this);
+        storageController = new StorageController(appContext);
     }
 
-    void appRouter() {
+    static void appRouter() {
         startPage();
-        String command = input.next();
+        String command = appContext.input.next();
         command = command.toLowerCase();
 
         switch (command) {
             case COMMAND_QUIT -> quit();
             case COMMAND_SAVE -> saveStorage();
             case COMMAND_LOAD -> loadStorage();
-            case COMMAND_TIMER -> storageController.folderController.timerController.timerRouter();
-            case COMMAND_STORAGE -> storageController.storageRouter();
+            case COMMAND_TIMER -> TimerController.timerRouter();
+            case COMMAND_STORAGE -> StorageController.storageRouter();
             default -> invalidAppCommand();
         }
     }
@@ -74,23 +75,20 @@ public class MainController {
         System.out.println("Please input an character that is provided.");
     }
 
-    private void startPage() {
-        String page = """
-                \u001b[4;32m============== Main Page ==============\u001b[0m
-                \u001b[4;32mPlease select which page you want to go\u001b[0m
-                \u001b[4;32m[t]\u001b[0m -> start your timer here!
-                \u001b[4;32m[g]\u001b[0m -> go to storage to see your past records!
-                \u001b[4;32m[l]\u001b[0m -> load storage from file and go to storage!
-                \u001b[4;32m[s]\u001b[0m -> save your changes to file and quit!
-                \u001b[4;32m[q]\u001b[0m -> ignore all the changes and quit!
-                """;
-        System.out.println(page);
+    private static void startPage() {
+        Page page = new Page("Main Page", "Please select which page you want to go");
+        page.addCommand(new Command(COMMAND_TIMER, "start your timer here!"));
+        page.addCommand(new Command(COMMAND_STORAGE, "go to storage to see your past records!"));
+        page.addCommand(new Command(COMMAND_LOAD, "load storage from file and go to storage!"));
+        page.addCommand(new Command(COMMAND_SAVE, "save your changes to file and quit!"));
+        page.addCommand(new Command(COMMAND_QUIT, "ignore all the changes and quit!"));
+        System.out.println(page.toString());
     }
 
-    private void saveStorage() {
+    private static void saveStorage() {
         try {
             jsonWriter.open();
-            jsonWriter.write(storage);
+            jsonWriter.write(appContext.storage);
             jsonWriter.close();
             System.out.println("Your changes to storage have been saved to " + JSON_STORE + ".");
             System.out.println("See you next time! :) ");
@@ -100,11 +98,11 @@ public class MainController {
     }
 
     // EFFECTS:  process the starter page for user command
-    private void loadStorage() {
+    private static void loadStorage() {
         try {
-            storage = jsonReader.read();
+            appContext.storage = jsonReader.read();
             System.out.println("Storage from file:" + JSON_STORE + " has been loaded.");
-            storageController.storageRouter();
+            StorageController.storageRouter();
         } catch (IOException e) {
             System.out.println("Unable to read from file " + JSON_STORE + ".");
         }

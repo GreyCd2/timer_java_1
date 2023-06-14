@@ -11,21 +11,18 @@ import java.util.ArrayList;
  * @author Grey
  */
 public class FolderController {
-    MainController mainController;
     TimerController timerController;
-    StorageController storageController;
+    static AppContext appContext;
     private static final String COMMAND_DELETE = "d";
     private static final String COMMAND_EDIT = "e";
     private static final String COMMAND_CALCULATOR = "c";
     private static final String COMMAND_STORAGE = "s";
     private static final String COMMAND_BACK_TO_MAIN = "m";
 
-    public FolderController(MainController mainController,
-                            StorageController storageController) {
-        this.mainController = mainController;
-        this.storageController = storageController;
+    public FolderController(AppContext appContext) {
+        this.appContext = appContext;
 
-        this.timerController = new TimerController(mainController, storageController, this);
+        this.timerController = new TimerController(appContext);
     }
 
     /**
@@ -38,7 +35,7 @@ public class FolderController {
      *
      * @param f
      */
-    void doWithFolder(Folder f) {
+    static void doWithFolder(Folder f) {
         String page = """
                 \u001b[4;32m========= Folder Page =========\u001b[0m
                 \u001b[4;32m[d]\u001b[0m -> delete a time record
@@ -49,14 +46,14 @@ public class FolderController {
                 """;
         System.out.println(page);
 
-        String selection = mainController.input.next();
+        String selection = appContext.input.next();
         selection = selection.toLowerCase();
         switch (selection) {
-            case COMMAND_DELETE -> timerController.deleteRecord(f);
-            case COMMAND_EDIT -> timerController.editNote(f);
+            case COMMAND_DELETE -> TimerController.deleteRecord(f);
+            case COMMAND_EDIT -> TimerController.editNote(f);
             case COMMAND_CALCULATOR -> openCalculator(f);
-            case COMMAND_STORAGE -> storageController.storageRouter();
-            case COMMAND_BACK_TO_MAIN -> mainController.appRouter();
+            case COMMAND_STORAGE -> StorageController.storageRouter();
+            case COMMAND_BACK_TO_MAIN -> MainController.appRouter();
             default -> invalidFolderCommand(f);
         }
     }
@@ -66,50 +63,52 @@ public class FolderController {
      *
      * @param f
      */
-    private void invalidFolderCommand(Folder f) {
-        System.out.println("Invalid input. Please enter a character that is provided.");
+    private static void invalidFolderCommand(Folder f) {
+        System.out.println("\u001b[4;32mInvalid input. Please enter a character that is provided.\u001b[0m");
         doWithFolder(f);
     }
 
     /**
      * Create a new folder with user input name and add it into the storage
      */
-    void createFolder() {
-        System.out.println("How would you like to name this new Folder?");
-        String folderName = mainController.input.next() + mainController.input.nextLine();
-        mainController.storage.addFolder(folderName);
-        System.out.println("Folder " + folderName + " has been created.");
+    static void createFolder() {
+        System.out.println("\u001b[4;32mHow would you like to name this new Folder?\u001b[0m");
+        String folderName = appContext.input.next() + appContext.input.nextLine();
+        appContext.storage.addFolder(folderName);
+        String formatName = String.format("\u001b[4;32mFolder %s has been created.\u001b[0m", folderName);
+        System.out.println(formatName);
 
-        storageController.storageRouter();
+        StorageController.storageRouter();
     }
 
     /**
      * Delete the folder with user input index in the storage
      * Redirect user to the storage page
      */
-    void deleteFolder() {
-        System.out.println("Please enter the index of the folder you want to delete:");
-        int index = mainController.input.nextInt();
-        mainController.storage.deleteFolder(index);
-        System.out.println("Folder " + index + " has been deleted.");
+    static void deleteFolder() {
+        System.out.println("\u001b[4;32mPlease enter the index of the folder you want to delete:\u001b[0m");
+        int index = appContext.input.nextInt();
+        appContext.storage.deleteFolder(index);
+        String formatIndex = String.format("\u001b[4;32mFolder %s has been deleted.\u001b[0m", index);
+        System.out.println(formatIndex);
 
-        storageController.storageRouter();
+        StorageController.storageRouter();
     }
 
     /**
      * Rename the folder with user input index and user input name
      * Redirect user to the storage page
      */
-    void renameFolder() {
+    static void renameFolder() {
         System.out.println("Please enter the index of the folder you want to rename:");
-        int index = mainController.input.nextInt();
-        Folder f = mainController.storage.getFolders().get(index);
+        int index = appContext.input.nextInt();
+        Folder f = appContext.storage.getFolders().get(index);
         System.out.println("Please enter the new name for this folder:");
-        String newName = mainController.input.next() + mainController.input.nextLine();
+        String newName = appContext.input.next() + appContext.input.nextLine();
         f.setName(newName);
         System.out.println("Folder " + index + " has been renamed as " + newName + ".");
 
-        storageController.storageRouter();
+        StorageController.storageRouter();
     }
     // EFFECTS: open the folder with given index, display all the records in the folder
     //          Then choose what to do with the folder.
@@ -118,10 +117,10 @@ public class FolderController {
      * Open the folder with user input index and display all the records in the chosen folder
      * User can then choose what to do with the folder or records inside the folder
      */
-    void openFolder() {
+    static void openFolder() {
         System.out.println("Please enter the index of the folder you want to open:");
-        int index = mainController.input.nextInt();
-        Folder f = mainController.storage.getFolders().get(index);
+        int index = appContext.input.nextInt();
+        Folder f = appContext.storage.getFolders().get(index);
         System.out.println("Folder: " + f.getName());
         displayRecords(f);
         doWithFolder(f);
@@ -130,11 +129,11 @@ public class FolderController {
     /**
      * @param f
      */
-    private void openCalculator(Folder f) {
+    private static void openCalculator(Folder f) {
         System.out.println("The calculator is ready.");
         System.out.println("Please enter the number of records to count, or -1 for all records in the folder.");
 
-        int amount = mainController.input.nextInt();
+        int amount = appContext.input.nextInt();
         if (amount == -1) {
             calculateAll(f);
         } else {
@@ -146,7 +145,7 @@ public class FolderController {
 
     // MODIFIES: this
     // EFFECTS:  calculate all records' average time in the given folder.
-    public void calculateAll(Folder f) {
+    public static void calculateAll(Folder f) {
         double sum = 0;
         int count = 0;
 
@@ -161,7 +160,7 @@ public class FolderController {
 
     // MODIFIES: this
     // EFFECTS:  calculate given amount of records' average time in the given folder.
-    public void calculateDesiredAmount(Folder f, int amount) {
+    public static void calculateDesiredAmount(Folder f, int amount) {
         double sum = 0;
         ArrayList<TimeRecord> records = f.getRecords();
 
@@ -175,7 +174,7 @@ public class FolderController {
         System.out.println("Your average time is: " + result);
     }
 
-    public void displayRecords(Folder f) {
+    public static void displayRecords(Folder f) {
         if (f.getBestRecord() != null) {
             System.out.println("PB Record: " + (f.getBestRecord()).getTime() + ": " + (f.getBestRecord()).getNote());
         }

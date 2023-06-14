@@ -7,30 +7,24 @@ import model.TimeRecord;
  * Represent the timer layer of the Timer app
  */
 public class TimerController {
-    MainController mainController;
-    StorageController storageController;
-    FolderController folderController;
+    static AppContext appContext;
     public static final String COMMAND_KEEP = "k";
     public static final String COMMAND_IGNORE = "i";
     public static final String COMMAND_START = "s";
     public static final String COMMAND_STOP = "l";
-    private long start;
-    private long end;
+    private static long start;
+    private static long end;
 
-    public TimerController(MainController mainController,
-                           StorageController storageController,
-                           FolderController folderController) {
-        this.mainController = mainController;
-        this.storageController = storageController;
-        this.folderController = folderController;
+    public TimerController(AppContext appContext) {
+        this.appContext = appContext;
     }
 
-    void timerRouter() {
+    static void timerRouter() {
         System.out.println("Timer Instruction:");
         System.out.println("Enter the letter s, and hit enter key when you want to start the timer.");
         System.out.println("When you are down, enter the letter l and hit enter as fast as possible to end timing.");
 
-        String selection = mainController.input.next();
+        String selection = appContext.input.next();
         selection = selection.toLowerCase();
         if (selection.equals(COMMAND_START)) {
             start = System.nanoTime();
@@ -41,7 +35,7 @@ public class TimerController {
             timerRouter();
         }
 
-        String selection2 = mainController.input.next();
+        String selection2 = appContext.input.next();
         selection2 = selection2.toLowerCase();
         if (selection2.equals(COMMAND_STOP)) {
             end = System.nanoTime();
@@ -52,20 +46,20 @@ public class TimerController {
         doWithTimeRecord(time);
     }
 
-    void doWithTimeRecord(double time) {
+    static void doWithTimeRecord(double time) {
         System.out.println("What would you like to do with this time record?");
         System.out.println("k -> keep it");
         System.out.println("i -> ignore it and go back to main starter page");
 
-        String selection = mainController.input.next();
+        String selection = appContext.input.next();
         selection = selection.toLowerCase();
         if (selection.equals(COMMAND_KEEP)) {
             System.out.println("Please enter any note you would like to add for this time record:");
-            String note = mainController.input.next() + mainController.input.nextLine();
+            String note = appContext.input.next() + appContext.input.nextLine();
             TimeRecord timeRecord = new TimeRecord(time, note);
             addTimeRecordTo(timeRecord);
         } else if (selection.equals(COMMAND_IGNORE)) {
-            mainController.appRouter();
+            MainController.appRouter();
         } else {
             System.out.println("Invalid input. Please enter a character that is provided.");
             doWithTimeRecord(time);
@@ -74,41 +68,41 @@ public class TimerController {
     // MODIFIES: this
     // EFFECTS:  add the time record into a folder with given index.
 
-    void addTimeRecordTo(TimeRecord tr) {
+    static void addTimeRecordTo(TimeRecord tr) {
         System.out.println("Please enter the index of the folder you would like to add this time record into:");
-        storageController.displayFolders(mainController.storage);
-        int index = mainController.input.nextInt();
-        Folder f = mainController.storage.getFolders().get(index);
+        StorageController.displayFolders(appContext.storage);
+        int index = appContext.input.nextInt();
+        Folder f = appContext.storage.getFolders().get(index);
         f.addTimeRecord(tr);
         System.out.println("Your time record has been successfully added.");
         System.out.println("Directing you back to storage page...");
-        storageController.storageRouter();
+        StorageController.storageRouter();
     }
 
-    void deleteRecord(Folder f) {
+    static void deleteRecord(Folder f) {
         System.out.println("Please enter the index of the record you want to delete:");
-        int index = mainController.input.nextInt();
+        int index = appContext.input.nextInt();
         f.deleteTimeRecord(index);
         System.out.println("Time record " + index + " has been deleted.");
 
-        folderController.displayRecords(f);
+        FolderController.displayRecords(f);
     }
 
     // MODIFIES: this
     // EFFECTS:  replace the note of the record with given index with a new input note
-    void editNote(Folder f) {
+    static void editNote(Folder f) {
         System.out.println("Please enter the index of the record you want to edit:");
-        int index = mainController.input.nextInt();
+        int index = appContext.input.nextInt();
         TimeRecord editRecord = f.getRecords().get(index);
         String newNote = getNewNote();
         editRecord.setNote(newNote);
         System.out.println("Note for record " + index + " has been edited.");
 
-        folderController.doWithFolder(f);
+        FolderController.doWithFolder(f);
     }
 
-    private String getNewNote() {
+    private static String getNewNote() {
         System.out.println("Please enter the new note:");
-        return (mainController.input.next() + mainController.input.nextLine());
+        return (appContext.input.next() + appContext.input.nextLine());
     }
 }

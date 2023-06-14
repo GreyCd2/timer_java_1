@@ -5,6 +5,7 @@ import persistence.Writeable;
 
 /**
  * Represent a time record with its time and note
+ *
  * @author Grey
  */
 public class TimeRecord implements Writeable {
@@ -13,6 +14,7 @@ public class TimeRecord implements Writeable {
 
     /**
      * Create a time record with input time and default note
+     *
      * @param time
      */
     public TimeRecord(double time) {
@@ -22,6 +24,7 @@ public class TimeRecord implements Writeable {
 
     /**
      * Create a time record with input time and user input note
+     *
      * @param time
      * @param note
      */

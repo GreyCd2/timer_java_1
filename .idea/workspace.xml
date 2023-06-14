@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# Add lib dir">
-      <change afterPath="$PROJECT_DIR$/lib/json-20230227.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_20210307.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/json_20210307.xml" afterDir="false" />
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 1. Add latest json jar into lib&#10;2. Fix the bug that records cannot be displayed when best record is null for the folder">
+      <change afterPath="$PROJECT_DIR$/src/main/ui/AppContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ui/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ui/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/json-20210307.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/FolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/TimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/Project/timer_java_1/lib/json-20230227.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -159,6 +163,7 @@
       <workItem from="1686624775727" duration="2417000" />
       <workItem from="1686628539881" duration="18071000" />
       <workItem from="1686700977485" duration="3813000" />
+      <workItem from="1686709654632" duration="4033000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -335,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686709322887</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="# 1. Add latest json jar into lib&#10;2. Fix the bug that records cannot be displayed when best record is null for the folder">
+      <created>1686709902711</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686709902711</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +390,8 @@
     <MESSAGE value="# Remove redundant and add new comments in Event, EventHistory and Folder" />
     <MESSAGE value="# 1. Remove redundant and add new comments in Storage, TimeRecord and FolderController&#10;2. Commented out &quot;.jar&quot; in gitignore" />
     <MESSAGE value="# Add lib dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="# Add lib dir" />
+    <MESSAGE value="# 1. Add latest json jar into lib&#10;2. Fix the bug that records cannot be displayed when best record is null for the folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="# 1. Add latest json jar into lib&#10;2. Fix the bug that records cannot be displayed when best record is null for the folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

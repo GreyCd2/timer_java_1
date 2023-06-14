@@ -3,10 +3,12 @@ package model;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writeable;
+
 import java.util.ArrayList;
 
 /**
  * Represent the storage of the PbTimer App with a list of folders in it
+ *
  * @author Grey
  */
 public class Storage implements Writeable {
@@ -21,6 +23,7 @@ public class Storage implements Writeable {
 
     /**
      * Add a new empty folder with user input name
+     *
      * @param folderName
      */
     public void addFolder(String folderName) {
@@ -38,6 +41,7 @@ public class Storage implements Writeable {
 
     /**
      * Add an existing folder into the storage
+     *
      * @param f
      */
     public void addFolder(Folder f) {
@@ -48,6 +52,7 @@ public class Storage implements Writeable {
 
     /**
      * Delete the folder with user input index.
+     *
      * @param index
      */
     public void deleteFolder(int index) {
@@ -72,6 +77,7 @@ public class Storage implements Writeable {
 
     /**
      * Return folders in the storage as a JSON array
+     *
      * @return
      */
     private JSONArray foldersToJson() {

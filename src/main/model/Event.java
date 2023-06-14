@@ -7,6 +7,7 @@ import java.util.Objects;
 
 /**
  * Represent a storage event
+ *
  * @author Grey
  */
 public class Event {
@@ -16,6 +17,7 @@ public class Event {
 
     /**
      * Create an event with the given description and the current date/time stamp
+     *
      * @param description
      */
     public Event(String description) {

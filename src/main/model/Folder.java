@@ -3,11 +3,13 @@ package model;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writeable;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  * Represent a folder with its name, a list of time records it has and a personal best record inside this folder
+ *
  * @author Grey
  */
 public class Folder implements Writeable {
@@ -17,6 +19,7 @@ public class Folder implements Writeable {
 
     /**
      * Build a folder with user input name and an empty list of time records
+     *
      * @param name
      */
     public Folder(String name) {
@@ -28,6 +31,7 @@ public class Folder implements Writeable {
      * Add a time record into the folder
      * If this is the first record being added, take it as the best record
      * Else, compare it with the existing best record, and replace best record with it if this one is quicker
+     *
      * @param record
      */
     public void addTimeRecord(TimeRecord record) {
@@ -36,7 +40,7 @@ public class Folder implements Writeable {
         // If this is the first record being added
         if (records.size() == 1) {
             bestRecord = record;
-        // If this one is quicker than existing best record
+            // If this one is quicker than existing best record
         } else if (record.getTime() < bestRecord.getTime()) {
             bestRecord = record;
         }
@@ -44,6 +48,7 @@ public class Folder implements Writeable {
 
     /**
      * Delete the time record with given index
+     *
      * @param index
      */
     public void deleteTimeRecord(int index) {
@@ -116,6 +121,7 @@ public class Folder implements Writeable {
 
     /**
      * Return time records as a JSON array
+     *
      * @return
      */
     private JSONArray recordsToJson() {

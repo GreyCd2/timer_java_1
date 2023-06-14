@@ -2,11 +2,13 @@ package persistence;
 
 import model.Storage;
 import org.json.JSONObject;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
  * Represent a writer that writes current storage into JSON file
+ *
  * @author Grey
  */
 public class JsonWriter {
@@ -21,6 +23,7 @@ public class JsonWriter {
     /**
      * Open writer
      * Throw FileNotFoundException if destination file cannot be opened for writing
+     *
      * @throws FileNotFoundException
      */
     public void open() throws FileNotFoundException {
@@ -29,6 +32,7 @@ public class JsonWriter {
 
     /**
      * Writes JSON representation of storage to file
+     *
      * @param storage
      */
     public void write(Storage storage) {
@@ -42,6 +46,7 @@ public class JsonWriter {
 
     /**
      * Writes string to file
+     *
      * @param json
      */
     private void saveToFile(String json) {

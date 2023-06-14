@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 /**
  * Represent a log of storage events
+ *
  * @author Grey
  */
 public class EventHistory implements Iterable<Event> {
@@ -14,7 +15,7 @@ public class EventHistory implements Iterable<Event> {
     private Collection<Event> events;
 
     /**
-     *  Create an event history with no events in it
+     * Create an event history with no events in it
      */
     private EventHistory() {
         events = new ArrayList<>();
@@ -31,6 +32,7 @@ public class EventHistory implements Iterable<Event> {
 
     /**
      * Add an event to the event history
+     *
      * @param e
      */
     public void logEvent(Event e) {
