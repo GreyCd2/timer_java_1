@@ -53,13 +53,13 @@ public class Folder implements Writeable {
      */
     public boolean deleteTimeRecord(int index) {
         boolean result = false;
-        int indexRange = records.size() - 1;
         // If the index is valid
-        if ((index >= 0) && (index <= indexRange)) {
-            TimeRecord timeRecord = records.get(index);
+        if ((index > 0) && (index <= records.size())) {
+            TimeRecord timeRecord = records.get(index - 1);
             records.remove(timeRecord);
             result = true;
 
+            // If the deleted record is the last record in the folder, set best record as null
             if (records.size() == 0) {
                 bestRecord = null;
             } else if (timeRecord.equals(bestRecord)) {

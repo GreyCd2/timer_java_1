@@ -16,10 +16,11 @@ public class Storage implements Writeable {
     private ArrayList<Folder> folders;
 
     /**
-     * Create a new storage with no folders inside
+     * Create a new storage with a default folder named "Folder 1" inside
      */
     private Storage() {
         folders = new ArrayList<>();
+        addFolder("Folder 1");
     }
 
     public static Storage getInstance() {
@@ -50,25 +51,29 @@ public class Storage implements Writeable {
      * @param f
      */
     public void addFolder(Folder f) {
-        // TODO: WHY EXIST
         folders.add(f);
         EventHistory.getInstance().logEvent(new Event("Folder " + f.getName() + " added."));
     }
 
     /**
      * Delete the folder with user input index.
+     * If the deleted folder is the last folder in the storage, create a new default folder.
      *
      * @param index
      */
     public boolean deleteFolder(int index) {
         boolean result = false;
-        int indexRange = folders.size() - 1;
-        if ((index >= 0) && (index <= indexRange)) {
-            Folder f = folders.get(index);
+        if ((index > 0) && (index <= folders.size())) {
+            Folder f = folders.get(index - 1);
             folders.remove(f);
             result = true;
             EventHistory.getInstance().logEvent(new Event("Folder " + f.getName() + " deleted."));
         }
+
+        if (folders.size() == 0) {
+            addFolder("Folder 1");
+        }
+
         return result;
     }
 

@@ -14,7 +14,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-// Represents a Timer App
 public class TimerUI extends JFrame {
     private static final int WIDTH = 300;
     private static final int HEIGHT = 600;
@@ -26,7 +25,6 @@ public class TimerUI extends JFrame {
     private static JsonWriter jsonWriter;
     private static JsonReader jsonReader;
 
-    // EFFECTS:  showing an opening image when the app is opened
     private static void startPage() {
         int displayTime = 2000;
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -52,7 +50,6 @@ public class TimerUI extends JFrame {
         timer.start();
     }
 
-    // EFFECTS:  construct a PbTimer UI with a timer page and a storage page
     public TimerUI() {
         storage = Storage.getInstance();
 
@@ -85,8 +82,6 @@ public class TimerUI extends JFrame {
         setVisible(true);
     }
 
-    // MODIFIES: this
-    // EFFECTS:  add a menu bar for the app
     private void addMenuBar() {
         JMenuBar menuBar = new JMenuBar();
 
@@ -105,7 +100,6 @@ public class TimerUI extends JFrame {
         this.setJMenuBar(menuBar);
     }
 
-    // EFFECTS:  adds an item with given handler to the given menu
     private void addMenuItem(JMenu theMenu, AbstractAction action, KeyStroke accelerator) {
         JMenuItem menuItem = new JMenuItem(action);
         menuItem.setMnemonic(menuItem.getText().charAt(0));
@@ -113,7 +107,6 @@ public class TimerUI extends JFrame {
         theMenu.add(menuItem);
     }
 
-    // EFFECTS:  represents action to be taken when user wants to save the file to default path
     private class SaveFileAction extends AbstractAction {
 
         SaveFileAction() {
@@ -133,7 +126,6 @@ public class TimerUI extends JFrame {
         }
     }
 
-    // EFFECTS:  represents action to be taken when user wants to load the file from default path
     private class LoadFileAction extends AbstractAction {
 
         LoadFileAction() {
@@ -151,9 +143,6 @@ public class TimerUI extends JFrame {
         }
     }
 
-    // REQUIRES: the folder name does not exist already
-    // MODIFIES: this, storage
-    // EFFECTS:  represents action to be taken when user wants to add a new folder with user input name
     private class AddFolderAction extends AbstractAction {
 
         AddFolderAction() {
@@ -173,9 +162,6 @@ public class TimerUI extends JFrame {
         }
     }
 
-    // REQUIRES: the input index is valid and exist
-    // MODIFIES: this, storage
-    // EFFECTS:  represents action to be taken when user wants to remove a folder
     private class RemoveFolderAction extends AbstractAction {
 
         RemoveFolderAction() {
@@ -202,7 +188,6 @@ public class TimerUI extends JFrame {
         }
     }
 
-    // EFFECTS:  display all the folders in outputArea
     private void displayStorage() {
         outputArea.setText("");
         for (int i = 0; i < storage.getFolders().size(); i++) {
@@ -211,14 +196,12 @@ public class TimerUI extends JFrame {
         }
     }
 
-    // EFFECTS:  print all logs in the console
     private void printLog(EventHistory el) {
         for (Event next : el) {
             System.out.println(next.toString());
         }
     }
 
-    // starts the application
     public static void main(String[] args) {
         new TimerUI();
     }

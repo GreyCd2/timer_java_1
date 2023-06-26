@@ -5,7 +5,9 @@
 - [ ] Display error message in red text.
 - [ ] Check for exceptions.
 - [ ] Clear and fix comments.
-- [ ] Add default folder when storage is empty.
+- [x] Change displayed index to start with 1.
+- [x] Add default folder when storage is empty.
+- [x] Autoload.
 ---------
 ## Timer 1.1 Features:
 - [ ] Upgrade database.

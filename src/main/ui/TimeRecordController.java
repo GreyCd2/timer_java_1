@@ -7,16 +7,13 @@ import model.TimeRecord;
  * Represent the timer layer of the Timer app
  */
 public class TimeRecordController {
-//    static AppContext appContext;
     public static final String COMMAND_KEEP = "k";
     public static final String COMMAND_NOTE = "n";
     public static final String COMMAND_IGNORE = "i";
     public static final String COMMAND_START = "s";
     public static final String COMMAND_STOP = "l";
 
-//    public TimeRecordController(AppContext appContext) {
     public TimeRecordController() {
-//        this.appContext = appContext;
     }
 
     static void displayPage(double time) {
@@ -41,7 +38,7 @@ public class TimeRecordController {
         System.out.println("Please enter the index of the folder you would like to add this time record into:");
         StorageController.displayFolders(AppContext.storage);
         int index = AppContext.readInt();
-        Folder f = AppContext.storage.getFolders().get(index);
+        Folder f = AppContext.storage.getFolders().get(index - 1);
         f.addTimeRecord(tr);
         System.out.println("Your time record has been successfully added.");
         System.out.println("Directing you back to storage page...");
@@ -70,7 +67,7 @@ public class TimeRecordController {
     static void editNote(Folder f) {
         System.out.println("Please enter the index of the record you want to edit:");
         int index = AppContext.readInt();
-        TimeRecord editRecord = f.getRecords().get(index);
+        TimeRecord editRecord = f.getRecords().get(index - 1);
         String newNote = getNewNote();
         editRecord.setNote(newNote);
         System.out.println("Note for record " + index + " has been edited.");

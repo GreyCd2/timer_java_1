@@ -11,7 +11,7 @@ import java.util.Objects;
  * @author Grey
  */
 public class Event {
-    private static final int HASH_CONSTANT = 13;
+    //    private static final int HASH_CONSTANT = 13;
     private Date dateLogged;
     private String description;
 

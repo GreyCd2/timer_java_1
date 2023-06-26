@@ -5,19 +5,13 @@ import model.Storage;
 import java.util.Scanner;
 
 public class AppContext {
-//    private static final AppContext INSTANCE = new AppContext();
     public static Storage storage;
     public static Scanner input;
 
     private AppContext() {
     }
 
-/*    public static AppContext getInstance() {
-        return INSTANCE;
-    }*/
-
     public static String readLine() {
-//        return input.next() + input.nextLine();
         return input.next();
     }
 
