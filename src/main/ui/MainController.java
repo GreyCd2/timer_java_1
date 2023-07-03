@@ -21,6 +21,7 @@ public class MainController {
     public static final String COMMAND_STORAGE = "g";
     static JsonWriter jsonWriter;
     static JsonReader jsonReader;
+    private static Page page = new Page("Main Page", "Please select which page you want to go");
 
     public static void main(String[] args) {
         MainController.startApp();
@@ -29,7 +30,7 @@ public class MainController {
     /**
      * Set up input and storage,
      * start writer and reader,
-     * load storage and start opening page.
+     * load storage and set up opening page.
      */
     public static void startApp() {
         System.out.println("Hi! Welcome to PB Timer.");
@@ -42,8 +43,12 @@ public class MainController {
 
         new StorageController();
 
+        page.addCommand(new Command(COMMAND_TIMER, "start your timer here!"));
+        page.addCommand(new Command(COMMAND_STORAGE, "go to storage to see your past records!"));
+        page.addCommand(new Command(COMMAND_SAVE, "save your changes to file and quit!"));
+        page.addCommand(new Command(COMMAND_QUIT, "ignore all the changes and quit!"));
+
         loadStorage();
-        displayPage();
     }
 
     /**
@@ -55,31 +60,20 @@ public class MainController {
             AppContext.storage = jsonReader.read();
             System.out.println("Storage from file:" + JSON_STORE + " has been loaded.");
         } catch (IOException e) {
-            System.out.println("Error: unable to read from file " + JSON_STORE + ".");
+            AppContext.errorMessage("Error: unable to read from file " + JSON_STORE + ".");
         }
     }
 
     /**
-     * Display the opening page for main controller and call the router to collect user response.
-     */
-    public static void displayPage() {
-        Page page = new Page("Main Page", "Please select which page you want to go");
-        page.addCommand(new Command(COMMAND_TIMER, "start your timer here!"));
-        page.addCommand(new Command(COMMAND_STORAGE, "go to storage to see your past records!"));
-        page.addCommand(new Command(COMMAND_SAVE, "save your changes to file and quit!"));
-        page.addCommand(new Command(COMMAND_QUIT, "ignore all the changes and quit!"));
-        System.out.println(page);
-
-        router();
-    }
-
-    /**
+     * Display guiding page.
      * Collect user response and direct to corresponding page.
      */
     static void router() {
+        System.out.println(page);
+
         switch (AppContext.readCommand()) {
             case COMMAND_TIMER -> Timer.timer();
-            case COMMAND_STORAGE -> StorageController.displayPage();
+            case COMMAND_STORAGE -> StorageController.router();
             case COMMAND_SAVE -> saveStorage();
             case COMMAND_QUIT -> quit();
             default -> invalidMainCommand();
@@ -99,25 +93,24 @@ public class MainController {
             System.out.println("See you next time! :) ");
             System.exit(0);
         } catch (FileNotFoundException e) {
-            System.out.println("Error: unable to save to file: " + JSON_STORE + ".");
+            AppContext.errorMessage("Error: unable to save to file: " + JSON_STORE + ".");
             router();
         }
     }
 
     /**
-     * Force quit.
+     * Quit without saving.
      */
     private static void quit() {
-        System.out.println("Thank you for using PB Timer.");
-        System.out.println("See you next time! :)");
+        System.out.println("Thank you for using PB Timer.\nSee you next time! :)");
         System.exit(0);
     }
 
     /**
-     * Output the error message and restart router again to collect user response.
+     * Display error message and redirect to main router.
      */
     private static void invalidMainCommand() {
-        System.out.println("Error: invalid selection.");
+        AppContext.errorMessage("Error: invalid selection.");
         System.out.println("Please input an character that is provided.");
 
         router();

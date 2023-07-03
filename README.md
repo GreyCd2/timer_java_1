@@ -2,12 +2,13 @@
 
 ---------
 ## TODO: 
-- [ ] Display error message in red text.
-- [ ] Check for exceptions.
-- [ ] Clear and fix comments.
+- [x] Display error message in red text.
+- [x] Check for exceptions.
+- [x] Clear and fix comments.
 - [x] Change displayed index to start with 1.
 - [x] Add default folder when storage is empty.
 - [x] Autoload.
+- [ ] Tests for previous todos (especially 1,2 & 3).
 ---------
 ## Timer 1.1 Features:
 - [ ] Upgrade database.

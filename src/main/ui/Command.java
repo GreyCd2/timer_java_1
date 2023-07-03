@@ -1,5 +1,10 @@
 package ui;
 
+/**
+ * Represent a command option.
+ *
+ * @author Grey
+ */
 public class Command {
     public final String key;
     public final String desc;
@@ -9,6 +14,11 @@ public class Command {
         this.desc = desc;
     }
 
+    /**
+     * A fixed text format for a command.
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return """

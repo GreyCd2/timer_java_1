@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# Split TimerController into Timer and TimeRecordController.">
+    <list default="true" id="aaa48792-54a2-4bb7-9fea-68d3b0063a10" name="Changes" comment="# 1. Reformat index system.&#10;2. Change and improve calculator function: calculate all or five latest record with highest and lowest ones removed.&#10;3. Add default folder to storage when there is no folder in storage.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Folder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Storage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/AppContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/FolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/FolderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/StorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/StorageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/TimeRecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimeRecordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/Timer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/TimerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/TimerUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,26 +45,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Project/timer_java_1/lib/json-20230227.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Project/timer_java_1/lib/json-20230227.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\STUDY\aUBC\2022W2\CPSC210\project_n6l5p" />
@@ -173,7 +172,8 @@
       <workItem from="1686700977485" duration="3813000" />
       <workItem from="1686709654632" duration="14957000" />
       <workItem from="1687743211743" duration="4661000" />
-      <workItem from="1687750789448" duration="10802000" />
+      <workItem from="1687750789448" duration="11580000" />
+      <workItem from="1688346006145" duration="7516000" />
     </task>
     <task id="LOCAL-00001" summary="# Add Phase0 Task 2">
       <created>1674616860412</created>
@@ -371,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686718901010</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="# 1. Reformat index system.&#10;2. Change and improve calculator function: calculate all or five latest record with highest and lowest ones removed.&#10;3. Add default folder to storage when there is no folder in storage.">
+      <created>1687766448194</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687766448194</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +398,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="# Edit Title and Subtitle" />
     <MESSAGE value="# Amend User Stories of Phase 0" />
     <MESSAGE value="# Phase 1 added" />
     <MESSAGE value="# Commented out recursive quit bug" />
@@ -416,7 +422,8 @@
     <MESSAGE value="# 1. Add latest json jar into lib&#10;2. Fix the bug that records cannot be displayed when best record is null for the folder" />
     <MESSAGE value="# 1. Use AppContext as mediate.&#10;2. Add Page and Command as UI improvement." />
     <MESSAGE value="# Split TimerController into Timer and TimeRecordController." />
-    <option name="LAST_COMMIT_MESSAGE" value="# Split TimerController into Timer and TimeRecordController." />
+    <MESSAGE value="# 1. Reformat index system.&#10;2. Change and improve calculator function: calculate all or five latest record with highest and lowest ones removed.&#10;3. Add default folder to storage when there is no folder in storage." />
+    <option name="LAST_COMMIT_MESSAGE" value="# 1. Reformat index system.&#10;2. Change and improve calculator function: calculate all or five latest record with highest and lowest ones removed.&#10;3. Add default folder to storage when there is no folder in storage." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -425,16 +432,6 @@
           <url>file://$PROJECT_DIR$/src/test/model/EventTest.java</url>
           <line>35</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/ui/FolderController.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/ui/FolderController.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

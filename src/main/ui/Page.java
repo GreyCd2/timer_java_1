@@ -3,6 +3,10 @@ package ui;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represent a starter page for a router.
+ * @author Grey
+ */
 public class Page {
     public final String title;
     public final String desc;
@@ -17,6 +21,10 @@ public class Page {
         commands.add(command);
     }
 
+    /**
+     * A fixed text format for a starter page.
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -26,6 +34,6 @@ public class Page {
         return """
                 \u001b[4;32m============== %s ==============\u001b[0m
                 \u001b[4;32m %s \u001b[0m
-                """.formatted(title, desc) + stringBuilder.toString();
+                """.formatted(title, desc) + stringBuilder;
     }
 }

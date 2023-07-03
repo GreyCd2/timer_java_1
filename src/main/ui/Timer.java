@@ -1,5 +1,10 @@
 package ui;
 
+/**
+ * Represent a timing function.
+ *
+ * @author Grey
+ */
 public class Timer {
     private static long start;
     private static long end;
@@ -26,6 +31,6 @@ public class Timer {
 
         double time = (end - start) * 0.000000001;
         System.out.println("Your Time is: " + time);
-        TimeRecordController.displayPage(time);
+        TimeRecordController.router(time);
     }
 }
