@@ -14,7 +14,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-public class TimerUI extends JFrame {
+public class UiForStorage extends JFrame {
     private static final int WIDTH = 300;
     private static final int HEIGHT = 600;
     private static final String JSON_STORE = "./data/storage.json";
@@ -50,7 +50,7 @@ public class TimerUI extends JFrame {
         timer.start();
     }
 
-    public TimerUI() {
+    public UiForStorage() {
         storage = Storage.getInstance();
 
         startPage();
@@ -203,6 +203,6 @@ public class TimerUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        new TimerUI();
+        new UiForStorage();
     }
 }
